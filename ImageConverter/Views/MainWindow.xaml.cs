@@ -15,6 +15,8 @@ using Windows.Foundation.Collections;
 using ImageConverter.ViewModels;
 using Microsoft.Web.WebView2.Core;
 using ImageConverter.Services;
+using System.Reflection.Metadata.Ecma335;
+using CommunityToolkit.WinUI.UI.Behaviors;
 
 namespace ImageConverter
 {
@@ -31,7 +33,13 @@ namespace ImageConverter
 
         private IEnumerable<NavigationViewItem> GetNavigationItems()
         {
-            return NavView.MenuItems.OfType<NavigationViewItem>();
+            var navigationItems =  NavView.MenuItems
+                                   .OfType<NavigationViewItem>()
+                                   .ToList();
+
+            navigationItems.AddRange(NavView.FooterMenuItems.OfType<NavigationViewItem>());
+
+            return navigationItems;
         }
 
         private double NavViewCompactModeThresholdWidth { get { return NavView.CompactModeThresholdWidth; } }

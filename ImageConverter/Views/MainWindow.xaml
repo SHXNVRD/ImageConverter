@@ -48,6 +48,12 @@
                 </NavigationViewItem>
             </NavigationView.MenuItems>
 
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Tag="ImageConverter.Views.SettingsPage"
+                                    x:Uid="Settings"
+                                    Icon="Setting"/>
+            </NavigationView.FooterMenuItems>
+
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="NavViewSearchBox"
                                 QueryIcon="Find"/>

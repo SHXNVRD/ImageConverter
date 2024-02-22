@@ -129,6 +129,9 @@
   <data name="Home.Content" xml:space="preserve">
     <value>Главная</value>
   </data>
+  <data name="Settings.Content" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="SettingsPersonalization.Text" xml:space="preserve">
     <value>Персонализация</value>
   </data>

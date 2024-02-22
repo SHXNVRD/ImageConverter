@@ -10,6 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <TextBlock Text="Settings Page"
+                   FontSize="24"/>
     </Grid>
 </Page>

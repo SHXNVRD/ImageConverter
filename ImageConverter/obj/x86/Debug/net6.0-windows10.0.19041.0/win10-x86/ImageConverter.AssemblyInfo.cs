@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImageConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3d5e74b2dc0ecb3505fde9396de80d374787fd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImageConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImageConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

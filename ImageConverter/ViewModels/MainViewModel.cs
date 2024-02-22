@@ -30,15 +30,8 @@ namespace ImageConverter.ViewModels
         [RelayCommand]
         public void OnItemInvoked(NavigationViewItemInvokedEventArgs args)
         {
-            if (args.IsSettingsInvoked == true)
-            {
-                _navigationService.NavigateTo(typeof(SettingsPage));
-            }
-            else if (args.InvokedItemContainer != null)
-            {
-                Type navPageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
-                _navigationService.NavigateTo(navPageType);
-            }
+            Type navPageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
+            _navigationService.NavigateTo(navPageType);
         }
 
         [RelayCommand]
