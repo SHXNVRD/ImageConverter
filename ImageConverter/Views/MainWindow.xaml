@@ -10,7 +10,9 @@
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
-    <Grid x:Name="RootGrid">
+    <Grid x:Name="RootGrid"
+          Background="{ThemeResource  ApplicationPageBackgroundThemeBrush}">
+
         <NavigationView x:Name="NavView"
                         IsSettingsVisible="False"
                         Header="{x:Bind ViewModel.NavigationHeader, Mode=OneWay}"

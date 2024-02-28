@@ -460,3 +460,4 @@ D:\dotnet\repos\ImageConverter\ImageConverter\bin\x86\Debug\net6.0-windows10.0.1
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\WindowsAppRuntime.png
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Microsoft.UI.Xaml.Controls.pri
+D:\dotnet\repos\ImageConverter\ImageConverter\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\CommunityToolkit.Labs.WinUI.SettingsControls.dll

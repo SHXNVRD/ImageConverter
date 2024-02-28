@@ -6,11 +6,55 @@
     xmlns:local="using:ImageConverter.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:c="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ui="using:CommunityToolkit.WinUI"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="Settings Page"
-                   FontSize="24"/>
-    </Grid>
+    <ScrollViewer>
+        <StackPanel>
+            
+            <labs:SettingsExpander x:Uid="SettingsLanguage">
+                
+                <labs:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF2B7;"/>
+                </labs:SettingsExpander.HeaderIcon>
+
+                <labs:SettingsExpander.Items>
+                    <labs:SettingsCard ContentAlignment="Left">
+                        <RadioButtons>
+                            <RadioButton x:Uid="SettingsLanguageRussian" />
+                            <RadioButton x:Uid="SettingsLanguageEnglish"/>
+                        </RadioButtons>
+                    </labs:SettingsCard>
+                </labs:SettingsExpander.Items>
+            </labs:SettingsExpander>
+
+            <labs:SettingsExpander x:Uid="SettingsTheme">
+
+                <i:Interaction.Behaviors>
+                    <c:EventTriggerBehavior EventName="Expanded">
+                        <c:InvokeCommandAction Command="{x:Bind ViewModel.ExpandedCommand}"/>
+                    </c:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+                
+                
+                <labs:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE790;"/>
+                </labs:SettingsExpander.HeaderIcon>
+
+                <labs:SettingsExpander.Items>
+                    <labs:SettingsCard ContentAlignment="Left">
+                        <RadioButtons>
+                            <RadioButton x:Uid="SettingsThemeLight" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Light"/>
+                            <RadioButton x:Uid="SettingsThemeDark" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Dark"/>
+                            <RadioButton x:Uid="SettingsThemeDefault" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Default"/>
+                        </RadioButtons>
+                    </labs:SettingsCard>
+                </labs:SettingsExpander.Items>
+            </labs:SettingsExpander>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

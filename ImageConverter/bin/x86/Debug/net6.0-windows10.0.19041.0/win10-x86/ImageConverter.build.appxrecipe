@@ -1162,6 +1162,9 @@
     <AppxPackagedFile Include="C:\Users\Rodion\.nuget\packages\communitytoolkit.common\7.1.2\lib\net5.0\CommunityToolkit.Common.dll">
       <PackagePath>CommunityToolkit.Common.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rodion\.nuget\packages\communitytoolkit.labs.winui.settingscontrols\0.0.18\lib\net60-windows10.0.19041.0\CommunityToolkit.Labs.WinUI.SettingsControls.dll">
+      <PackagePath>CommunityToolkit.Labs.WinUI.SettingsControls.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rodion\.nuget\packages\communitytoolkit.mvvm\8.2.2\lib\net6.0\CommunityToolkit.Mvvm.dll">
       <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
     </AppxPackagedFile>
@@ -1227,6 +1230,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\dotnet\repos\ImageConverter\ImageConverter\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\MsixContent\Microsoft.UI.Xaml.Controls.pri">
       <PackagePath>Microsoft.UI.Xaml.Controls.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rodion\.nuget\packages\communitytoolkit.labs.winui.settingscontrols\0.0.18\lib\net60-windows10.0.19041.0\CommunityToolkit.Labs.WinUI.SettingsControls.pri">
+      <PackagePath>CommunityToolkit.Labs.WinUI.SettingsControls.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rodion\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
       <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
