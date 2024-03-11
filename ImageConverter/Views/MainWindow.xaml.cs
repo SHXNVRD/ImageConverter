@@ -17,6 +17,13 @@ using Microsoft.Web.WebView2.Core;
 using ImageConverter.Services;
 using System.Reflection.Metadata.Ecma335;
 using CommunityToolkit.WinUI.UI.Behaviors;
+using Microsoft.Extensions.DependencyInjection;
+using ImageConverter.Services.Navigation;
+using System.Drawing;
+using Windows.UI;
+using Windows.ApplicationModel;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
 
 namespace ImageConverter
 {
@@ -29,6 +36,23 @@ namespace ImageConverter
             this.InitializeComponent();
             ViewModel = new MainViewModel(new NavigationService(ContentFrame, GetNavigationItems()));
             RootGrid.DataContext = ViewModel;
+
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
+        }
+
+        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+        {
+            if (args.WindowActivationState == WindowActivationState.Deactivated)
+            {
+                TitleBarTextBlock.Foreground =
+                    (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
+            }
+            else
+            {
+                TitleBarTextBlock.Foreground =
+                    (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
+            }
         }
 
         private IEnumerable<NavigationViewItem> GetNavigationItems()

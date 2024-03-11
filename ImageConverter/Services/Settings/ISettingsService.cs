@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace ImageConverter.Services.Settings
 {
     public interface ISettingsService
     {
-        void Initialize();
-        T ReadSetting<T>(string key);
-        void SaveSetting<T>(string key, T value);
+        Task InitializeAsync();
+        Task<T?> ReadSettingAsync<T>(string key);
+        Task SaveSettingAsync<T>(string key, T value);
     }
 }

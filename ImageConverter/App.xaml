@@ -11,13 +11,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <ResourceDictionary>
-                    <Style TargetType="labs:SettingsExpander" x:Key="SettingsExpanderHeader">
-                        <Setter Target="FontSize" Value="36"/>
-                        <Setter Target="FontFamily" Value="SemiBold"/>
-                    </Style>
-                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ScrollViewer" x:Key="ScrollViewerStyle">
+                <Setter Target="Background" Value="{ThemeResource AcrylicBackgroundFillColorBaseBrush}"/>
+                <Setter Target="Margin" Value="12"/>
+                <Setter Target="CornerRadius" Value="8"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

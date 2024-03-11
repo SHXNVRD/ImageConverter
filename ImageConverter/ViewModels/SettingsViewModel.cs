@@ -3,41 +3,43 @@ using CommunityToolkit.Mvvm.Input;
 using ImageConverter.Services.Settings;
 using ImageConverter.Services.ThemeSelector;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage;
 
 namespace ImageConverter.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
         private readonly ISettingsService _settingsService;
-        private IThemeSelectorService _themeSelectorService;
+        private readonly IThemeSelectorService _themeSelectorService;
+
+        [ObservableProperty]
+        private ElementTheme _themeOnLoadSettingsPage;
 
         public SettingsViewModel(IThemeSelectorService themeSelectorService, ISettingsService settingsService)
         {
             _themeSelectorService = themeSelectorService;
             _settingsService = settingsService;
+
+            _themeOnLoadSettingsPage = _themeSelectorService.CurrentTheme;
         }
 
         [RelayCommand]
-        public void SetTheme(string themeName)
+        public async Task SwitchThemeAsync(ElementTheme theme)
         {
-            if (Enum.TryParse(themeName, out ElementTheme theme))
+            try
             {
-                _themeSelectorService.SetTheme(theme);
-                _settingsService.SaveSetting<ElementTheme>("AppRequestedTheme", theme);
+                if (_themeSelectorService.CurrentTheme != theme)
+                {
+                    _themeSelectorService.SetTheme(theme);
+                    await _themeSelectorService.SaveThemeAsync(theme);
+                }
             }
-        }
-
-        [RelayCommand]
-        public void OnExpanded()
-        {
-            
+            catch (Exception ex)
+            {
+                throw;
+            }
+   
         }
     }
 }

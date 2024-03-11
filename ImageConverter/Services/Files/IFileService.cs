@@ -8,7 +8,12 @@ namespace ImageConverter.Services.Files
 {
     public interface IFileService
     {
-        T ReadFromJson<T>(string fileFolder, string fileName);
-        void SaveToJson<T>(string fileFolder, string fileName, T value);
+        //Task<T> ReadJsonAsync<T>(string fileFolder, string fileName);
+        //Task SaveJsonAsync<T>(string fileFolder, string fileName, T value);
+
+        T ReadJson<T>(string fileFolder, string fileName);
+        void SaveJson<T>(string fileFolder, string fileName, T value);
+        Task SaveFileAsync(string fileFolder, string fileName, string value);
+        Task SaveFileAsync(string value);
     }
 }

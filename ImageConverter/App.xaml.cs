@@ -2,18 +2,12 @@
 using ImageConverter.ViewModels;
 using Microsoft.UI.Xaml;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
 using ImageConverter.Services.Files;
 using Microsoft.Extensions.DependencyInjection;
 using ImageConverter.Services.ThemeSelector;
+using ImageConverter.Services.Navigation;
+using Microsoft.UI.Xaml.Controls;
+using ImageConverter.Services.ImageToASCII;
 
 namespace ImageConverter
 {
@@ -24,19 +18,19 @@ namespace ImageConverter
         public IServiceProvider Services { get; }
 
         private readonly IThemeSelectorService _themeSelectorService;
+
         public App()
         {
             this.InitializeComponent();
             Services = ConfigureServices();
             _themeSelectorService = Services.GetService<IThemeSelectorService>();
-
-            _themeSelectorService.SetThemeOnLoadedApp();
         }
 
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected async override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-
             Window = new MainWindow();
+            ElementTheme loadedTheme = await _themeSelectorService.LoadThemeAsync();
+            _themeSelectorService.SetTheme(loadedTheme);
             Window.Activate();
         }
 
@@ -47,6 +41,11 @@ namespace ImageConverter
             services.AddSingleton<IFileService, FileService>();
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+            services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<IImageToASCIIService, ImageToASCIIService>();
+
+            services.AddTransient<SettingsViewModel>();
+            services.AddTransient<ConvertToASCIIViewModel>();
 
             return services.BuildServiceProvider();
         }

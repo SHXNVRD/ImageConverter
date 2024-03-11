@@ -9,12 +9,17 @@
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:c="using:Microsoft.Xaml.Interactions.Core"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
-    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:xaml="using:Microsoft.UI.Xaml"
+    xmlns:helpers="using:ImageConverter.Helpers"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
+    </Page.Resources>
+
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Margin="56,44">
             
             <labs:SettingsExpander x:Uid="SettingsLanguage">
                 
@@ -33,14 +38,6 @@
             </labs:SettingsExpander>
 
             <labs:SettingsExpander x:Uid="SettingsTheme">
-
-                <i:Interaction.Behaviors>
-                    <c:EventTriggerBehavior EventName="Expanded">
-                        <c:InvokeCommandAction Command="{x:Bind ViewModel.ExpandedCommand}"/>
-                    </c:EventTriggerBehavior>
-                </i:Interaction.Behaviors>
-                
-                
                 <labs:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE790;"/>
                 </labs:SettingsExpander.HeaderIcon>
@@ -48,9 +45,30 @@
                 <labs:SettingsExpander.Items>
                     <labs:SettingsCard ContentAlignment="Left">
                         <RadioButtons>
-                            <RadioButton x:Uid="SettingsThemeLight" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Light"/>
-                            <RadioButton x:Uid="SettingsThemeDark" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Dark"/>
-                            <RadioButton x:Uid="SettingsThemeDefault" Command="{x:Bind ViewModel.SetThemeCommand}" CommandParameter="Default"/>
+                            <RadioButton
+                                x:Uid="SettingsThemeLight"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                IsChecked="{x:Bind ViewModel.ThemeOnLoadSettingsPage, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Light</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton
+                                x:Uid="SettingsThemeDark"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                IsChecked="{x:Bind ViewModel.ThemeOnLoadSettingsPage, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton
+                                x:Uid="SettingsThemeDefault"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                IsChecked="{x:Bind ViewModel.ThemeOnLoadSettingsPage, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Default</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
                         </RadioButtons>
                     </labs:SettingsCard>
                 </labs:SettingsExpander.Items>

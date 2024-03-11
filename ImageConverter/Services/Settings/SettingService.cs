@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Text.Json.Nodes;
 using Windows.Storage;
 using Microsoft.UI.Xaml;
+using System.Threading.Tasks;
 
 namespace ImageConverter.Services.Settings
 {
@@ -34,19 +35,19 @@ namespace ImageConverter.Services.Settings
             _settings = new Dictionary<string, object>();
         }
 
-        public void Initialize()
+        public async Task InitializeAsync()
         {
             if (!_isInitialized)
             {
-                _settings = _fileService.ReadFromJson<IDictionary<string, object>>(_appDataFolder, _settingsFile) ?? new Dictionary<string, object>();
+                _settings = await Task.Run(() => _fileService.ReadJson<IDictionary<string, object>>(_appDataFolder, _settingsFile)) ?? new Dictionary<string, object>();
 
                 _isInitialized = true;
             }
         }
 
-        public T ReadSetting<T>(string key)
+        public async Task<T?> ReadSettingAsync<T>(string key)
         {
-            Initialize();
+            await InitializeAsync();
 
             if (_settings != null && _settings.TryGetValue(key, out var value))
             {
@@ -56,13 +57,13 @@ namespace ImageConverter.Services.Settings
             return default;
         }
 
-        public void SaveSetting<T>(string key, T value)
+        public async Task SaveSettingAsync<T>(string key, T value)
         {
-            Initialize();
+            await InitializeAsync();
 
             _settings[key] = JsonConvert.SerializeObject(value);
 
-            _fileService.SaveToJson(_appDataFolder, _settingsFile, _settings);
+            await Task.Run(() => _fileService.SaveJson(_appDataFolder, _settingsFile, _settings));
         }
     }
 }

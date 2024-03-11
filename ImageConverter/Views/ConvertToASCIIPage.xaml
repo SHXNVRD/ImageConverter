@@ -6,10 +6,151 @@
     xmlns:local="using:ImageConverter.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid x:Name="CommandBarGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Панель  инмтрументов -->
+            <StackPanel Orientation="Horizontal">
+                <CommandBar IsOpen="False"
+                            DefaultLabelPosition="Right"
+                            FlowDirection="LeftToRight">
+                    <AppBarButton
+                        Icon="Add"
+                        Label="Add"
+                        Command="{x:Bind ViewModel.AddCommand}">
+                        <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                    </AppBarButton>
+
+                    <AppBarButton Icon="Save"
+                                  Label="Save"
+                                  Command="{x:Bind ViewModel.SaveASCIICommand}">
+                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                    </AppBarButton>
+                </CommandBar>
+            </StackPanel>
+
+            <!--<StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <CommandBar DefaultLabelPosition="Right">
+                    <AppBarButton Icon="Cancel"
+                          Label="Cancel">
+                        <KeyboardAccelerator Modifiers="Control" Key="Q"/>
+                    </AppBarButton>
+                </CommandBar>
+            </StackPanel>-->
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.35*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Область вывода ASCII арта -->
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                          HorizontalScrollBarVisibility="Auto"
+                          x:Name="ContentScrollViewer">
+                <RichTextBlock>
+                    <Paragraph>
+                        Здесь отобразиться ваш ASCII арт
+                    </Paragraph>
+                </RichTextBlock>
+            </ScrollViewer>
+            
+            <!-- Панель натсроек -->
+            <StackPanel x:Name="SettingsPanel"
+                        Grid.Column="1"
+                        Orientation="Vertical"
+                        Margin="0 12 12 12"
+                        Spacing="5">
+
+                <TextBlock
+                    Text="Параметры преобразования"
+                    Style="{StaticResource BodyStrongTextBlockStyle}"/>
+
+                <labs:SettingsCard
+                    Header="Размер (%)"
+                    Description="Задаёт размер итогового изображения исходя из загруженного изображения"
+                    ContentAlignment="Right">
+
+                    <Slider
+                        Width="350"
+                        MinWidth="100"
+                        Maximum="100"
+                        Minimum="10"
+                        StepFrequency="1"
+                        Value="{x:Bind ViewModel.SizePercent, Mode=TwoWay}">
+
+                    </Slider>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard
+                    Header="Смещение"
+                    Description="Задаёт показатель, влияющий на изменение пропорций изображения"
+                    HorizontalContentAlignment="Stretch">
+
+                    <Slider x:Name="WidthOffset"
+                            Width="350"
+                            MinWidth="100"
+                            Maximum="10"
+                            Minimum="1"
+                            StepFrequency="0.1"
+                            Value="{x:Bind ViewModel.WidthOffset, Mode=TwoWay}">
+
+                    </Slider>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard Header="Инверсия"
+                                   Description="Инвертирует итоговый арт, делая светлые области тёмными и наоборот. Включите, если арт будет располагаться на светлом фоне">
+                    <labs:SettingsCard.Resources>
+                        <x:Double x:Key="SettingsCardWrapThreshold">450</x:Double>
+                    </labs:SettingsCard.Resources>
+                    
+                    <ToggleSwitch HorizontalAlignment="Right"
+                                  IsOn="{x:Bind ViewModel.IsNegativeOn, Mode=TwoWay}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="Откл - лучше для тёмного фона
+                                              Вкл - лучше для светлого фона"/>
+                        </ToolTipService.ToolTip>
+                    </ToggleSwitch>
+                </labs:SettingsCard>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" 
+                            HorizontalAlignment="Stretch"
+                            Content="Генерировать"
+                            Command="{x:Bind ViewModel.GenerateASCIICommand}"
+                            Margin="0 0 5 0"
+                            Style="{StaticResource AccentButtonStyle}"/>
+                    
+                    <Button Grid.Column="1" 
+                            HorizontalAlignment="Stretch"
+                            Content="Сбросить"
+                            Command="{x:Bind ViewModel.ResetSettingsCommand}"
+                            Background="#f56c7a"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

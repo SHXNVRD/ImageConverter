@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using ImageConverter.Views;
-using ImageConverter.Services;
+using ImageConverter.Services.Navigation;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 
@@ -17,9 +17,9 @@ namespace ImageConverter.ViewModels
         [ObservableProperty]
         private NavigationViewItem _selectedNavigationItem;
 
-        private NavigationService _navigationService;
+        private INavigationService _navigationService;
 
-        public MainViewModel(NavigationService navigation)
+        public MainViewModel(INavigationService navigation)
         {
             _navigationService = navigation;
         }

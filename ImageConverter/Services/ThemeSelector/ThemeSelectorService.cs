@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,18 +16,20 @@ namespace ImageConverter.Services.ThemeSelector
 
         private readonly ISettingsService _settingsService;
 
+        private bool _isInitialized;
+
         public ThemeSelectorService(ISettingsService settingsService)
         {
             _settingsService = settingsService;
         }
 
-        public ElementTheme GetCurrentTheme()
+        public async Task InitializeAsync()
         {
-            if (App.Window.Content is FrameworkElement frameworkElement)
+            if (!_isInitialized)
             {
-                return frameworkElement.ActualTheme;
+                CurrentTheme = await LoadThemeAsync();
+                _isInitialized = true;
             }
-            return ElementTheme.Default;
         }
 
         public void SetTheme(ElementTheme theme)
@@ -38,9 +41,14 @@ namespace ImageConverter.Services.ThemeSelector
             }
         }
 
-        public ElementTheme LoadTheme()
+        public async Task SaveThemeAsync(ElementTheme theme)
         {
-            var themeName = _settingsService.ReadSetting<string>(_settingsKey);
+            await _settingsService.SaveSettingAsync(_settingsKey, theme);
+        }
+
+        public async Task<ElementTheme> LoadThemeAsync()
+        {
+            var themeName = await _settingsService.ReadSettingAsync<string>(_settingsKey);
 
             if (Enum.TryParse(themeName, out ElementTheme theme))
             {
@@ -51,9 +59,9 @@ namespace ImageConverter.Services.ThemeSelector
             return ElementTheme.Default;
         }
 
-        public void SetThemeOnLoadedApp()
+        public async Task SetThemeOnLoadedAppAsync()
         {
-            ElementTheme loadedTheme = LoadTheme();
+            ElementTheme loadedTheme = await LoadThemeAsync();
 
             switch (loadedTheme)
             {

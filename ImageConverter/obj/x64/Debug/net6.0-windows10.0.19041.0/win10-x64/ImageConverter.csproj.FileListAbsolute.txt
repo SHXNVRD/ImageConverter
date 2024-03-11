@@ -463,3 +463,5 @@ D:\dotnet\repos\ImageConverter\ImageConverter\obj\x64\Debug\net6.0-windows10.0.1
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
 D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll

@@ -14,7 +14,7 @@ namespace ImageConverter.Views
         public SettingsPage()
         {
             this.InitializeComponent();
-            ViewModel = new SettingsViewModel(App.Current.Services.GetService<IThemeSelectorService>(), App.Current.Services.GetService<ISettingsService>());
+            ViewModel = App.Current.Services.GetService<SettingsViewModel>();
             DataContext = ViewModel;
         }
     }
