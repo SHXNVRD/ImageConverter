@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ImageConverterUnitTests (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ImageConverterUnitTests (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

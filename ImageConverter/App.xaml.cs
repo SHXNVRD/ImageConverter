@@ -1,13 +1,6 @@
-﻿using ImageConverter.Services.Settings;
-using ImageConverter.ViewModels;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using System;
-using ImageConverter.Services.Files;
 using Microsoft.Extensions.DependencyInjection;
-using ImageConverter.Services.ThemeSelector;
-using ImageConverter.Services.Navigation;
-using Microsoft.UI.Xaml.Controls;
-using ImageConverter.Services.ImageToASCII;
 
 namespace ImageConverter
 {
@@ -26,7 +19,7 @@ namespace ImageConverter
             _themeSelectorService = Services.GetService<IThemeSelectorService>();
         }
 
-        protected async override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
             Window = new MainWindow();
             ElementTheme loadedTheme = await _themeSelectorService.LoadThemeAsync();
@@ -42,7 +35,7 @@ namespace ImageConverter
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<IImageToASCIIService, ImageToASCIIService>();
+            services.AddSingleton<IPickerService, PickerService>();
 
             services.AddTransient<SettingsViewModel>();
             services.AddTransient<ConvertToASCIIViewModel>();

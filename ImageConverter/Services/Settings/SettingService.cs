@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
-using System.Text.Json.Nodes;
-using Windows.Storage;
-using Microsoft.UI.Xaml;
 using System.Threading.Tasks;
 
 namespace ImageConverter.Services.Settings

@@ -1,0 +1,16 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.IO;
+global using System.Linq;
+global using System.Net.Http;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using ImageConverter.Services.Pickers;
+global using ImageConverter.Services.Files;
+global using ImageConverter.Services.Settings;
+global using ImageConverter.Services.Navigation;
+global using ImageConverter.Services.ThemeSelector;
+global using ImageConverter.Extensions;
+global using ImageConverter.Models;
+global using ImageConverter.Views;
+global using ImageConverter.ViewModels;

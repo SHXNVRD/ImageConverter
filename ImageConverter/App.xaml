@@ -6,14 +6,13 @@
     xmlns:local="using:ImageConverter"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI">
     
-    
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="ScrollViewer" x:Key="ScrollViewerStyle">
-                <Setter Target="Background" Value="{ThemeResource AcrylicBackgroundFillColorBaseBrush}"/>
+                <Setter Target="Background" Value="{ThemeResource LayerFillColorDefaultBrush}"/>
                 <Setter Target="Margin" Value="12"/>
                 <Setter Target="CornerRadius" Value="8"/>
             </Style>

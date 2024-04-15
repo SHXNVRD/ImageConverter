@@ -1,40 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ImageConverter.Services.ImageToASCII;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Media.Imaging;
-using Microsoft.VisualBasic;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
-using Windows.Networking.NetworkOperators;
 using Windows.Storage;
-using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
-using ImageConverter.Extensions;
-using Microsoft.UI.Xaml.Controls;
-using Windows.System.RemoteSystems;
-using ImageConverter.Services.Files;
+using Microsoft.UI.Dispatching;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace ImageConverter.ViewModels
 {
     public partial class ConvertToASCIIViewModel : ObservableObject
     {
+        private readonly DispatcherQueue _dispetcherQueue = DispatcherQueue.GetForCurrentThread();
+
         private const int DENOMINATOR = 100;
 
-        private IImageToASCIIService _imageToASCIIService;
         private IFileService _fileService;
-        private Bitmap _bitmap;
-        private StorageFile _imageFile;
+        private IPickerService _pickerService;
+        private SoftwareBitmap _softwareBitmap;
+
+        [ObservableProperty]
+        private ObservableCollection<string> _asciiArtRows;
+
+        [ObservableProperty]
         private string _asciiArt;
 
         [ObservableProperty]
@@ -46,84 +36,98 @@ namespace ImageConverter.ViewModels
         [ObservableProperty]
         private bool _isNegativeOn;
 
-        public ConvertToASCIIViewModel(IImageToASCIIService imageToASCIIService, IFileService fileService)
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ImagePath))]
+        private StorageFile _imageFile;
+
+        public string ImagePath
         {
-            _imageToASCIIService = imageToASCIIService;
+            get
+            {
+                if (ImageFile != null)
+                    return ImageFile.Path;
+                else
+                    return default;
+            }
+        }
+
+        public ConvertToASCIIViewModel(IFileService fileService, IPickerService pickerService)
+        {
             _fileService = fileService;
+            _pickerService = pickerService;
         }
 
         [RelayCommand]
         private async Task OnAddAsync()
         {
-            FileOpenPicker openPicker = new FileOpenPicker();
-            Window window = App.Window;
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
+            ImageFile = await _pickerService.PickImageAsync(App.Window);
 
-            openPicker.ViewMode = PickerViewMode.Thumbnail;
-            openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            if (ImageFile == null)
+                return;
 
-            openPicker.FileTypeFilter.Add(".jpg");
-            openPicker.FileTypeFilter.Add(".png");
-            openPicker.FileTypeFilter.Add(".gif");
-            openPicker.FileTypeFilter.Add(".exif");
-            openPicker.FileTypeFilter.Add(".tiff");
-
-            _imageFile = await openPicker.PickSingleFileAsync();
-            SoftwareBitmap softwareBitmap = await GetSoftwareBitmapAsync(_imageFile);
-            _bitmap = softwareBitmap.ConvertToBitmap();
+            _softwareBitmap = await GetSoftwareBitmapAsync(ImageFile);
         }
 
         [RelayCommand]
-        private void OnGenerateASCII()
+        private async Task OnGenerateASCII()
         {
+            SoftwareBitmap resizedBitmap = null;
+
             try
             {
-                if (_bitmap == null)
+                if (_softwareBitmap == null)
                     return;
 
-                double maxWidth = _bitmap.Width * SizePercent / DENOMINATOR;
-                var resizedBitmap = _imageToASCIIService.ResizeBitMap(_bitmap, (uint)maxWidth, WidthOffset);
+                var newWidth = _softwareBitmap.PixelWidth * SizePercent / DENOMINATOR;
+                var newHeight = _softwareBitmap.PixelHeight / WidthOffset * newWidth / _softwareBitmap.PixelHeight;
+                resizedBitmap = _softwareBitmap.Resize(newWidth, (int)newHeight);
+                resizedBitmap = resizedBitmap.ConvertToGrayscale();
                 char[][] rows;
 
                 if (IsNegativeOn)
-                    rows = _imageToASCIIService.ConvertNegative(resizedBitmap);
+                    rows = await AsciiConverter.ConvertNegativeAsync(resizedBitmap);
                 else
-                    rows = _imageToASCIIService.Convert(resizedBitmap);
+                    rows = await AsciiConverter.ConvertAsync(resizedBitmap);
 
-                _asciiArt = _imageToASCIIService.StringifyASCIIArray(rows);
-                resizedBitmap.Dispose();
+                AsciiArt = AsciiConverter.StringifyAscii(rows);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                resizedBitmap?.Dispose();
+            }
         }
 
         [RelayCommand]
-        private async Task OnSaveASCIIAsync()
+        private async Task SaveAsync()
         {
-            await SaveASCIIAsync();
-        }
-
-        private async Task SaveASCIIAsync()
-        {
-            if (_asciiArt == null)
+            if (AsciiArt == null)
                 return;
 
-            await _fileService.SaveFileAsync(_asciiArt);
+            try
+            {
+                StorageFile file = await _pickerService.PickSaveTxtAsync(App.Window);
+
+                if (file == null)
+                    return;
+
+                await FileIO.WriteTextAsync(file, AsciiArt);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
         }
 
         [RelayCommand]
-        private void OnResetSettings()
-        {
-            ResetSettings();
-        }
-
         private void ResetSettings()
         {
             WidthOffset = 1;
-            SizePercent = 10;
+            SizePercent = 100;
             IsNegativeOn = false;
         }
 

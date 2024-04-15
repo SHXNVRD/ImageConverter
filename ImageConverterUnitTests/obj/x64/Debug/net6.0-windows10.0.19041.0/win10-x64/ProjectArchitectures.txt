@@ -1,0 +1,1 @@
+D:\dotnet\repos\ImageConverter\ImageConverterUnitTests\ImageConverterUnitTests.csproj;x64

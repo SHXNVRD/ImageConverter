@@ -13,7 +13,6 @@ namespace ImageConverter.Services.Files
 
         T ReadJson<T>(string fileFolder, string fileName);
         void SaveJson<T>(string fileFolder, string fileName, T value);
-        Task SaveFileAsync(string fileFolder, string fileName, string value);
-        Task SaveFileAsync(string value);
+        void Delete(string folderPath, string fileName);
     }
 }

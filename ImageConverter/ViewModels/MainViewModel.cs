@@ -39,7 +39,7 @@ namespace ImageConverter.ViewModels
         {
             BackButtonEnabled = _navigationService.CanGoBack();
             SelectedNavigationItem = _navigationService.GetCurrentNavigationItem();
-            NavigationHeader = SelectedNavigationItem.Content.ToString();
+            //NavigationHeader = SelectedNavigationItem.Content.ToString();
         }
 
         [RelayCommand]

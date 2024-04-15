@@ -24,6 +24,7 @@ using Windows.UI;
 using Windows.ApplicationModel;
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
+using Microsoft.UI.Composition.SystemBackdrops;
 
 namespace ImageConverter
 {

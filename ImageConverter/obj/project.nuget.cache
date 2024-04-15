@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dHKcImqwvSXCbbwgTtuetX7JVIHRnX/KpdbZ1VYQsivTTFhY1Jhyl49i2f+3Vqgwj5OK5z7lWDHRMzdDS0aKFg==",
+  "dgSpecHash": "IoTh3+d+l+i1VoaTu1q1GNA5YrGUbAixHxSy8DbIVUJ1xMW8D5RA4Lk6K4MKVp5A0rBE0CT7uIN7HN8osZfrCg==",
   "success": true,
   "projectFilePath": "D:\\dotnet\\repos\\ImageConverter\\ImageConverter\\ImageConverter.csproj",
   "expectedPackageFiles": [
@@ -13,12 +13,10 @@
     "C:\\Users\\Rodion\\.nuget\\packages\\communitytoolkit.winui.ui.behaviors\\7.1.2\\communitytoolkit.winui.ui.behaviors.7.1.2.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.755\\microsoft.windows.sdk.buildtools.10.0.22621.755.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.windowsappsdk\\1.4.230913002\\microsoft.windowsappsdk.1.4.230913002.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.xaml.behaviors.winui.managed\\2.0.8\\microsoft.xaml.behaviors.winui.managed.2.0.8.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\Rodion\\.nuget\\packages\\system.drawing.common\\8.0.2\\system.drawing.common.8.0.2.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.25\\microsoft.netcore.app.runtime.win-x86.6.0.25.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.31\\microsoft.windows.sdk.net.ref.10.0.19041.31.nupkg.sha512",
     "C:\\Users\\Rodion\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.25\\microsoft.aspnetcore.app.runtime.win-x86.6.0.25.nupkg.sha512",

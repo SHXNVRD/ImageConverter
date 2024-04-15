@@ -16,63 +16,56 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
-        <Grid x:Name="CommandBarGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            
-            <!-- Панель  инмтрументов -->
-            <StackPanel Orientation="Horizontal">
-                <CommandBar IsOpen="False"
-                            DefaultLabelPosition="Right"
-                            FlowDirection="LeftToRight">
-                    <AppBarButton
+        
+        <!-- Панель  инмтрументов -->
+        <StackPanel Orientation="Horizontal">
+            <CommandBar IsOpen="False"
+                        DefaultLabelPosition="Right"
+                        FlowDirection="LeftToRight">
+                <AppBarButton
                         Icon="Add"
                         Label="Add"
-                        Command="{x:Bind ViewModel.AddCommand}">
+                        Command="{x:Bind ViewModel.AddCommand}"
+                        KeyboardAcceleratorPlacementMode="Auto">
+                    
+                    <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="O"/>
-                    </AppBarButton>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
 
-                    <AppBarButton Icon="Save"
-                                  Label="Save"
-                                  Command="{x:Bind ViewModel.SaveASCIICommand}">
+                <AppBarButton Icon="Save"
+                              Label="Save"
+                              Command="{x:Bind ViewModel.SaveCommand}">
+
+                    <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S"/>
-                    </AppBarButton>
-                </CommandBar>
-            </StackPanel>
-
-            <!--<StackPanel Grid.Column="1"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Right">
-                <CommandBar DefaultLabelPosition="Right">
-                    <AppBarButton Icon="Cancel"
-                          Label="Cancel">
-                        <KeyboardAccelerator Modifiers="Control" Key="Q"/>
-                    </AppBarButton>
-                </CommandBar>
-            </StackPanel>-->
-        </Grid>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+            </CommandBar>
+        </StackPanel>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.35*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- Область вывода ASCII арта -->
-            <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
-                          HorizontalScrollBarVisibility="Auto"
-                          x:Name="ContentScrollViewer">
-                <RichTextBlock>
-                    <Paragraph>
-                        Здесь отобразиться ваш ASCII арт
-                    </Paragraph>
-                </RichTextBlock>
-            </ScrollViewer>
-            
+            <Grid>
+                <ScrollViewer Style="{StaticResource ScrollViewerStyle}"
+                              x:Name="ContentScrollViewer"
+                              ZoomMode="Enabled"
+                              HorizontalScrollMode="Auto"
+                              VerticalScrollMode="Auto"
+                              VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Auto">
+                    
+                    <TextBlock Text="{x:Bind ViewModel.AsciiArt, Mode=OneWay}" TextWrapping="WrapWholeWords" FontFamily="Consolas" IsTextSelectionEnabled="True"/>
+                </ScrollViewer>
+            </Grid>
+
             <!-- Панель натсроек -->
             <StackPanel x:Name="SettingsPanel"
                         Grid.Column="1"
@@ -121,7 +114,7 @@
                     <labs:SettingsCard.Resources>
                         <x:Double x:Key="SettingsCardWrapThreshold">450</x:Double>
                     </labs:SettingsCard.Resources>
-                    
+
                     <ToggleSwitch HorizontalAlignment="Right"
                                   IsOn="{x:Bind ViewModel.IsNegativeOn, Mode=TwoWay}">
                         <ToolTipService.ToolTip>
@@ -143,7 +136,7 @@
                             Command="{x:Bind ViewModel.GenerateASCIICommand}"
                             Margin="0 0 5 0"
                             Style="{StaticResource AccentButtonStyle}"/>
-                    
+
                     <Button Grid.Column="1" 
                             HorizontalAlignment="Stretch"
                             Content="Сбросить"
@@ -152,5 +145,16 @@
                 </Grid>
             </StackPanel>
         </Grid>
+
+        <!-- Панель статуса -->
+        <StackPanel Orientation="Horizontal"
+                    Height="auto"
+                    Grid.Row="2"
+                    Padding="5"
+                    Background="{StaticResource LayerFillColorDefaultBrush}">
+
+            <TextBlock Text="Файл: "/>
+            <TextBlock Text="{x:Bind ViewModel.ImagePath, Mode=OneWay}"/>
+        </StackPanel>
     </Grid>
 </Page>

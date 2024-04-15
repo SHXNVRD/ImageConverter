@@ -18,14 +18,8 @@
             <RowDefinition Height="32"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Grid x:Name="AppTitleBar">
-            
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
-                <ColumnDefinition/>
-                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
-            </Grid.ColumnDefinitions>-->
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -54,9 +48,9 @@
 		<NavigationView x:Name="NavView"
 						Grid.Row="1"
 						IsSettingsVisible="False"
-						Header="{x:Bind ViewModel.NavigationHeader, Mode=OneWay}"
 						IsBackEnabled="{x:Bind ViewModel.BackButtonEnabled, Mode=OneWay}"
-						SelectedItem="{x:Bind ViewModel.SelectedNavigationItem, Mode=OneWay}">
+						SelectedItem="{x:Bind ViewModel.SelectedNavigationItem, Mode=OneWay}"
+                        >
 
 			<i:Interaction.Behaviors>
 				<c:EventTriggerBehavior EventName="ItemInvoked">
