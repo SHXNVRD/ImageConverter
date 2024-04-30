@@ -2,9 +2,8 @@
 global using System.Collections.Generic;
 global using System.IO;
 global using System.Linq;
-global using System.Net.Http;
-global using System.Threading;
 global using System.Threading.Tasks;
+global using Microsoft.Toolkit.Mvvm.DependencyInjection;
 global using ImageConverter.Services.Pickers;
 global using ImageConverter.Services.Files;
 global using ImageConverter.Services.Settings;

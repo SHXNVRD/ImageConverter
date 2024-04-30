@@ -1,39 +1,50 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ImageConverter.Services.Navigation
 {
     public class NavigationService : INavigationService
     {
-        private Frame _mainFrame;
+        private Frame _frame;
         private IEnumerable<NavigationViewItem> _navigationItems;
-        public Type SourcePageType { get { return _mainFrame.SourcePageType; } }
+        public Type SourcePageType { get { return Frame.SourcePageType; } }
 
-        public NavigationService(Frame mainFrame, IEnumerable<NavigationViewItem> navigationItems)
+        public Frame Frame
         {
-            _mainFrame = mainFrame;
+            get
+            {
+                if (_frame == null)
+                {
+                    _frame = App.Current.Window.Frame;
+                }
+
+                return _frame;
+            }
+            set { _frame = value; }
+        }
+
+
+        public NavigationService(IEnumerable<NavigationViewItem> navigationItems)
+        {
             _navigationItems = navigationItems;
         }
 
         public void NavigateTo(Type pageType)
         {
-            if (_mainFrame.CurrentSourcePageType != pageType && pageType != null)
+            if (Frame.CurrentSourcePageType != pageType && pageType != null)
             {
-                _mainFrame.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+                Frame.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
             }
         }
 
-        public bool CanGoBack() => _mainFrame.CanGoBack;
+        public bool CanGoBack => Frame != null && Frame.CanGoBack;
 
         public bool GoBack()
         {
-            if (CanGoBack())
+            if (CanGoBack)
             {
-                _mainFrame.GoBack();
+                Frame.GoBack();
                 return true;
             }
             return false;
@@ -45,6 +56,6 @@ namespace ImageConverter.Services.Navigation
         }
 
         public NavigationViewItem GetCurrentNavigationItem() =>
-            _navigationItems.First(i => i.Tag.Equals(_mainFrame.SourcePageType.FullName.ToString()));
+            _navigationItems.First(i => i.Tag.Equals(Frame.SourcePageType.FullName.ToString()));
     }
 }

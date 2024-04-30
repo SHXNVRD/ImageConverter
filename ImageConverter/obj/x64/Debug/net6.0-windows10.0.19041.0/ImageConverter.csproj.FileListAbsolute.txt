@@ -244,3 +244,5 @@ D:\dotnet\repos\ImageConverter\ImageConverter\obj\x64\Debug\net6.0-windows10.0.1
 D:\dotnet\repos\ImageConverter\ImageConverter\obj\x64\Debug\net6.0-windows10.0.19041.0\qualifiers.txt.intermediate
 D:\dotnet\repos\ImageConverter\ImageConverter\obj\x64\Debug\net6.0-windows10.0.19041.0\MultipleQualifiersPerDimensionFound.txt
 D:\dotnet\repos\ImageConverter\ImageConverter\obj\x64\Debug\net6.0-windows10.0.19041.0\ProjectArchitectures.txt
+D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\Microsoft.Toolkit.Mvvm.dll
+D:\dotnet\repos\ImageConverter\ImageConverter\bin\x64\Debug\net6.0-windows10.0.19041.0\WinUIEx.dll

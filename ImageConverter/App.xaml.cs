@@ -1,46 +1,46 @@
 ﻿using Microsoft.UI.Xaml;
-using System;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using ImageConverter.Services.CustomSymbolsService;
 
 namespace ImageConverter
 {
     public partial class App : Application
     {
-        public static Window Window { get; private set; }
+        public MainWindow Window { get; private set; }
+        public FrameworkElement MainRoot { get; private set; }
         public new static App Current => (App)Application.Current;
-        public IServiceProvider Services { get; }
-
-        private readonly IThemeSelectorService _themeSelectorService;
 
         public App()
         {
             this.InitializeComponent();
-            Services = ConfigureServices();
-            _themeSelectorService = Services.GetService<IThemeSelectorService>();
+            ConfigureServices();
         }
 
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
             Window = new MainWindow();
-            ElementTheme loadedTheme = await _themeSelectorService.LoadThemeAsync();
-            _themeSelectorService.SetTheme(loadedTheme);
+            MainRoot = (FrameworkElement)Window.Content;
+            await Ioc.Default.GetService<IThemeSelectorService>().InitializeAsync();
+            Ioc.Default.GetService<IThemeSelectorService>().SetCurrentTheme();
+            await Ioc.Default.GetService<UserSymbolsService>().InitializeAsync();
             Window.Activate();
         }
 
-        public IServiceProvider ConfigureServices()
+        public void ConfigureServices()
         {
             ServiceCollection services = new ServiceCollection();
 
             services.AddSingleton<IFileService, FileService>();
             services.AddSingleton<ISettingsService, SettingsService>();
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-            services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IPickerService, PickerService>();
+            services.AddSingleton<UserSymbolsService>();
 
             services.AddTransient<SettingsViewModel>();
             services.AddTransient<ConvertToASCIIViewModel>();
 
-            return services.BuildServiceProvider();
+            Ioc.Default.ConfigureServices(services.BuildServiceProvider());
         }
     }
 }

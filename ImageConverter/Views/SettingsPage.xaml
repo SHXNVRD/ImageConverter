@@ -73,6 +73,35 @@
                     </labs:SettingsCard>
                 </labs:SettingsExpander.Items>
             </labs:SettingsExpander>
+
+            <labs:SettingsExpander Header="Пользовательские символы"
+                                   Description="Установите собственные символы для генерации ASCII-артов"
+                                   >
+                <labs:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xED58;"/>
+                </labs:SettingsExpander.HeaderIcon>
+
+                <ToggleSwitch x:Name="tsUseCustomSymbols"
+                              IsOn="{x:Bind ViewModel.UseUserSymbols, Mode=TwoWay}">
+                    
+                    <i:Interaction.Behaviors>
+                        <c:EventTriggerBehavior EventName="Toggled">
+                            <c:InvokeCommandAction Command="{x:Bind ViewModel.SetUseUserSymbolsCommand}"/>
+                         </c:EventTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                </ToggleSwitch>
+
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard Header="Введите символы"
+                                           x:Name="CustomSymbolsSetting">
+
+                            <TextBox MinWidth="100"
+                                     Text="{x:Bind ViewModel.UserSymbols, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     LostFocus="{x:Bind ViewModel.SetUserSymbolsAsync}">
+                            </TextBox>
+                        </labs:SettingsCard>
+                     </labs:SettingsExpander.Items>
+            </labs:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </Page>

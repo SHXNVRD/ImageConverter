@@ -1,5 +1,6 @@
 ﻿using ImageConverter.Services.Settings;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ImageConverter.Services.ThemeSelector
 {
     public class ThemeSelectorService : IThemeSelectorService
     {
-        public ElementTheme CurrentTheme { get; private set; } = ElementTheme.Default;
+        public ElementTheme CurrentTheme { get; set; } = ElementTheme.Default;
         private const string _settingsKey = "AppRequestedTheme";
 
         private readonly ISettingsService _settingsService;
@@ -32,48 +33,37 @@ namespace ImageConverter.Services.ThemeSelector
             }
         }
 
-        public void SetTheme(ElementTheme theme)
+        public async Task SetTheme(ElementTheme theme)
         {
-            if (App.Window.Content is FrameworkElement frameworkElement)
+            CurrentTheme = theme;
+
+            SetCurrentTheme();
+            await SaveThemeAsync(CurrentTheme);
+        }
+
+        public void SetCurrentTheme()
+        {
+            if (App.Current.Window.Content is FrameworkElement frameworkElement)
             {
-                CurrentTheme = theme;
-                frameworkElement.RequestedTheme = theme;
+                frameworkElement.RequestedTheme = CurrentTheme;
             }
         }
 
-        public async Task SaveThemeAsync(ElementTheme theme)
+        private async Task SaveThemeAsync(ElementTheme theme)
         {
             await _settingsService.SaveSettingAsync(_settingsKey, theme);
         }
 
-        public async Task<ElementTheme> LoadThemeAsync()
+        private async Task<ElementTheme> LoadThemeAsync()
         {
             var themeName = await _settingsService.ReadSettingAsync<string>(_settingsKey);
 
             if (Enum.TryParse(themeName, out ElementTheme theme))
             {
-                CurrentTheme = theme;
                 return theme;
             }
 
             return ElementTheme.Default;
-        }
-
-        public async Task SetThemeOnLoadedAppAsync()
-        {
-            ElementTheme loadedTheme = await LoadThemeAsync();
-
-            switch (loadedTheme)
-            {
-                case ElementTheme.Light:
-                    App.Current.RequestedTheme = ApplicationTheme.Light;
-                    break;
-                case ElementTheme.Dark:
-                    App.Current.RequestedTheme = ApplicationTheme.Dark;
-                    break;
-                default:
-                    break;
-            }
         }
     }
 }

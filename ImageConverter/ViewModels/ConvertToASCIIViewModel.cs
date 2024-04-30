@@ -8,17 +8,18 @@ using Windows.Storage.Streams;
 using Microsoft.UI.Dispatching;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using ImageConverter.Helpers;
 
 namespace ImageConverter.ViewModels
 {
     public partial class ConvertToASCIIViewModel : ObservableObject
     {
-        private readonly DispatcherQueue _dispetcherQueue = DispatcherQueue.GetForCurrentThread();
+        //private readonly DispatcherQueue _dispetcherQueue = DispatcherQueue.GetForCurrentThread();
 
         private const int DENOMINATOR = 100;
 
-        private IFileService _fileService;
         private IPickerService _pickerService;
+        private ISettingsService _settinsService;
         private SoftwareBitmap _softwareBitmap;
 
         [ObservableProperty]
@@ -51,16 +52,16 @@ namespace ImageConverter.ViewModels
             }
         }
 
-        public ConvertToASCIIViewModel(IFileService fileService, IPickerService pickerService)
+        public ConvertToASCIIViewModel(IPickerService pickerService, ISettingsService settingsService)
         {
-            _fileService = fileService;
             _pickerService = pickerService;
+            _settinsService = settingsService;
         }
 
         [RelayCommand]
         private async Task OnAddAsync()
         {
-            ImageFile = await _pickerService.PickImageAsync(App.Window);
+            ImageFile = await _pickerService.PickImageAsync(App.Current.Window);
 
             if (ImageFile == null)
                 return;
@@ -84,16 +85,45 @@ namespace ImageConverter.ViewModels
                 resizedBitmap = resizedBitmap.ConvertToGrayscale();
                 char[][] rows;
 
-                if (IsNegativeOn)
-                    rows = await AsciiConverter.ConvertNegativeAsync(resizedBitmap);
-                else
-                    rows = await AsciiConverter.ConvertAsync(resizedBitmap);
+                if (await _settinsService.ReadSettingAsync<bool>("UseCustomSymbols"))
+                {
+                    var settings = new AsciiConverterSettings();
+                    var symbols = _settinsService.ReadSettingAsync<string>("CustomSymbols").Result.ToCharArray();
+                    settings.AsciiTable = symbols;
+                    Array.Reverse(symbols);
+                    settings.AsciiTableNegative = symbols;
 
-                AsciiArt = AsciiConverter.StringifyAscii(rows);
+                    if (IsNegativeOn)
+                    {
+                        rows = await AsciiConvert.ConvertAsync(resizedBitmap, settings);
+                    }
+                    else
+                    {
+                        rows = await AsciiConvert.ConvertNegativeAsync(resizedBitmap, settings);
+
+                    }
+
+                    AsciiArt = AsciiConvert.StringifyAscii(rows);
+                }
+                else
+                {
+                    if (IsNegativeOn)
+                    {
+                        rows = await AsciiConvert.ConvertAsync(resizedBitmap);
+                    }
+                    else
+                    {
+                        rows = await AsciiConvert.ConvertNegativeAsync(resizedBitmap);
+
+                    }
+
+                    AsciiArt = AsciiConvert.StringifyAscii(rows);
+                }
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                await DialogService.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
             }
             finally
             {
@@ -109,7 +139,7 @@ namespace ImageConverter.ViewModels
 
             try
             {
-                StorageFile file = await _pickerService.PickSaveTxtAsync(App.Window);
+                StorageFile file = await _pickerService.PickSaveTxtAsync(App.Current.Window);
 
                 if (file == null)
                     return;

@@ -1,57 +1,58 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Windows.Graphics.Imaging;
-using WinRT;
 using System.Runtime.InteropServices.WindowsRuntime;
+using WinRT;
 
 namespace ImageConverter.Models
 {
-    [ComImport]
-    [Guid("5B0D3235-4DBA-4D44-865E-8F1D0E4FD04D")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    unsafe interface IMemoryBufferByteAccess
+    public class AsciiConverter 
     {
-        void GetBuffer(out byte* buffer, out uint capacity);
-    }
+        private char[] _asciiTable;
+        private char[] _asciiTableNegative;
 
-    public static class AsciiConverter
-    {
-        private static readonly char[] _asciiTable = { '.', ',', ';', '+', '*', '?', '%', 'S', '#', '@' };
-        private static readonly char[] _asciiTableNegative = { '@', '#', 'S', '%', '?', '*', '+', ';', ',', '.' };
-
-        public static char[][] Convert(SoftwareBitmap softwareBitmap)
+        public AsciiConverter()
         {
-            if (softwareBitmap == null)
-                throw new ArgumentNullException(nameof(softwareBitmap), "softwareBitmap cannot be null");
-            return Convert(softwareBitmap, _asciiTable);
+            _asciiTable = AsciiConverterSettings.DefaultAsciiTable;
+            _asciiTableNegative = AsciiConverterSettings.DefaultAsciiTableNegative;
         }
 
-        public static char[][] ConvertNegative(SoftwareBitmap softwareBitmap)
+        public static AsciiConverter Create() => new AsciiConverter();
+
+        public static AsciiConverter Create(AsciiConverterSettings settings)
         {
-            if (softwareBitmap == null)
-                throw new ArgumentNullException(nameof(softwareBitmap), "softwareBitmap cannot be null");
-            return Convert(softwareBitmap, _asciiTableNegative);
+            AsciiConverter converter = Create();
+
+            if (settings != null)
+            {
+                ApplyAsciiConverterSettings(converter, settings);
+            }
+
+            return converter;
         }
 
-        public static async Task<char[][]> ConvertAsync(SoftwareBitmap softwareBitmap)
+        private static void ApplyAsciiConverterSettings(AsciiConverter converter, AsciiConverterSettings settings)
+        {
+            if (settings._asciiTable != null)
+                converter._asciiTable = settings.AsciiTable;
+            if (settings._asciiTableNegative != null)
+                converter._asciiTableNegative = settings.AsciiTableNegative;
+        }
+
+        public async Task<char[][]> ConvertAsync(SoftwareBitmap softwareBitmap)
         {
             if (softwareBitmap == null)
                 throw new ArgumentNullException(nameof(softwareBitmap), "softwareBitmap cannot be null");
             return await Task.Run(() => Convert(softwareBitmap, _asciiTable));
         }
 
-        public static async Task<char[][]> ConvertNegativeAsync(SoftwareBitmap softwareBitmap)
+        public async Task<char[][]> ConvertNegativeAsync(SoftwareBitmap softwareBitmap)
         {
             if (softwareBitmap == null)
                 throw new ArgumentNullException(nameof(softwareBitmap), "softwareBitmap cannot be null");
             return await Task.Run(() => Convert(softwareBitmap, _asciiTableNegative));
         }
 
-        private static char[][] Convert(SoftwareBitmap softwareBitmap, char[] asciiTable)
+        private char[][] Convert(SoftwareBitmap softwareBitmap, char[] asciiTable)
         {
             if (softwareBitmap == null)
                 throw new ArgumentNullException(nameof(softwareBitmap), "softwareBitmap cannot be null");

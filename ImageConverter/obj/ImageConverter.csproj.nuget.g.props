@@ -19,5 +19,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_WindowsAppSDK Condition=" '$(PkgMicrosoft_WindowsAppSDK)' == '' ">C:\Users\Rodion\.nuget\packages\microsoft.windowsappsdk\1.4.230913002</PkgMicrosoft_WindowsAppSDK>
+    <PkgWinUIEx Condition=" '$(PkgWinUIEx)' == '' ">C:\Users\Rodion\.nuget\packages\winuiex\2.3.4</PkgWinUIEx>
   </PropertyGroup>
 </Project>

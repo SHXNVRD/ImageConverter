@@ -14,8 +14,13 @@ namespace ImageConverter.Views
         public SettingsPage()
         {
             this.InitializeComponent();
-            ViewModel = App.Current.Services.GetService<SettingsViewModel>();
+            ViewModel = Ioc.Default.GetService<SettingsViewModel>();
             DataContext = ViewModel;
+        }
+
+        private async void TextBox_LosingFocus(Microsoft.UI.Xaml.UIElement sender, Microsoft.UI.Xaml.Input.LosingFocusEventArgs args)
+        {
+            await ViewModel.SetUserSymbolsAsync();
         }
     }
 }

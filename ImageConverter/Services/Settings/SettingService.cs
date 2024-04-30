@@ -27,7 +27,6 @@ namespace ImageConverter.Services.Settings
             _fileService = fileService;
             _appDataFolder = Path.Combine(_rootAppDataFolder, _defaultAppDataFolder);
             _settingsFile = _defaultSettingsFile;
-
             _settings = new Dictionary<string, object>();
         }
 

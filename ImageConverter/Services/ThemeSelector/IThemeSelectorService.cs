@@ -11,9 +11,8 @@ namespace ImageConverter.Services.ThemeSelector
     public interface IThemeSelectorService
     {
         ElementTheme CurrentTheme { get; }
-        void SetTheme(ElementTheme theme);
-        Task SaveThemeAsync(ElementTheme theme);
-        Task SetThemeOnLoadedAppAsync();
-        Task<ElementTheme> LoadThemeAsync();
+        Task SetTheme(ElementTheme theme);
+        void SetCurrentTheme();
+        Task InitializeAsync();
     }
 }

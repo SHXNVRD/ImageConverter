@@ -10,10 +10,11 @@ namespace ImageConverter.Services.Navigation
 {
     public interface INavigationService
     {
+        public bool CanGoBack { get; }
+        public  Frame Frame { get; set; }
         NavigationViewItem GetCurrentNavigationItem();
         void OnNavigationFailed(NavigationFailedEventArgs args);
         bool GoBack();
-        bool CanGoBack();
         void NavigateTo(Type pageType);
     }
 }
