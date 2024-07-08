@@ -12,6 +12,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/ButtonStyles.xaml"/>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -61,11 +65,11 @@
                               VerticalScrollMode="Auto"
                               VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto">
-                    
+
                     <TextBlock x:ConnectionId='10'                                                 TextWrapping="WrapWholeWords" FontFamily="Consolas" IsTextSelectionEnabled="True"/>
                 </ScrollViewer>
             </Grid>
-
+            
             <!-- Панель натсроек -->
             <StackPanel x:ConnectionId='3' x:Name="SettingsPanel"
                         Grid.Column="1"
@@ -73,38 +77,29 @@
                         Margin="0 12 12 12"
                         Spacing="5">
 
-                <TextBlock
-                    Text="Параметры преобразования"
-                    Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                <labs:SettingsCard Header="Размер (%)"
+                                   Description="Задаёт размер итогового арта исходя из загруженного изображения"
+                                   ContentAlignment="Right">
 
-                <labs:SettingsCard
-                    Header="Размер (%)"
-                    Description="Задаёт размер итогового изображения исходя из загруженного изображения"
-                    ContentAlignment="Right">
-
-                    <Slider x:ConnectionId='8'
-                        Width="350"
-                        MinWidth="100"
-                        Maximum="100"
-                        Minimum="10"
-                        StepFrequency="1"
-                                                                           >
-
+                    <Slider x:ConnectionId='8' x:Name="SizeSlider"
+                            Maximum="100"
+                            Minimum="10"
+                            StepFrequency="1"
+                                                                               
+                            Width="350">
                     </Slider>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard
-                    Header="Смещение"
-                    Description="Задаёт показатель, влияющий на изменение пропорций изображения"
-                    HorizontalContentAlignment="Stretch">
+                <labs:SettingsCard Header="Смещение"
+                                   Description="Задаёт кратность уменьшения высоты итогового арта"
+                                   HorizontalContentAlignment="Stretch">
 
-                    <Slider x:ConnectionId='7' x:Name="WidthOffset"
-                            Width="350"
-                            MinWidth="100"
+                    <Slider x:ConnectionId='7' x:Name="WidthOffsetSlider"
                             Maximum="10"
                             Minimum="1"
                             StepFrequency="0.1"
-                                                                               >
+                                                                               
+                            Width="350">
 
                     </Slider>
                 </labs:SettingsCard>
@@ -138,10 +133,10 @@
                             Style="{StaticResource AccentButtonStyle}"/>
 
                     <Button x:ConnectionId='5' Grid.Column="1" 
+                            Style="{StaticResource CloseButtonStyle}"
                             HorizontalAlignment="Stretch"
                             Content="Сбросить"
-                                                                             
-                            Background="#f56c7a"/>
+                                                                             />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -151,7 +146,9 @@
                     Height="auto"
                     Grid.Row="2"
                     Padding="5"
-                    Background="{StaticResource LayerFillColorDefaultBrush}">
+                    Margin="12 0 0 0"
+                    CornerRadius="8 0 0 8"
+                    Background="{StaticResource LayerFillColorAltBrush}">
 
             <TextBlock Text="Файл: "/>
             <TextBlock x:ConnectionId='2'                                                 />

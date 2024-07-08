@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\models\\asciiconvertersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\models\\asciiconvertersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\viewmodels\\converttoasciiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\viewmodels\\converttoasciiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\models\\asciiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\models\\asciiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\models\\asciiconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\models\\asciiconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\services\\implemations\\themeselectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\services\\implemations\\themeselectorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\extensions\\textblockextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\extensions\\textblockextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\helpers\\titlebarupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\helpers\\titlebarupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|d:\\dotnet\\repos\\imageconverter \u2014 \u043A\u043E\u043F\u0438\u044F\\imageconverter\\extensions\\applicationthemeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4A3C22-6E7B-43E2-AC4C-F6742D70FA8C}|ImageConverter\\ImageConverter.csproj|solutionrelative:imageconverter\\extensions\\applicationthemeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\App.xaml.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\App.xaml.cs",
+              "RelativeToolTip": "ImageConverter\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T16:48:17.271Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Views\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Views\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Views\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ImageConverter\\Views\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:28:05.303Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConvertToASCIIViewModel.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\ViewModels\\ConvertToASCIIViewModel.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\ViewModels\\ConvertToASCIIViewModel.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\ViewModels\\ConvertToASCIIViewModel.cs",
+              "RelativeToolTip": "ImageConverter\\ViewModels\\ConvertToASCIIViewModel.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAD0AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T15:58:21.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AsciiConvert.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConvert.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Models\\AsciiConvert.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConvert.cs",
+              "RelativeToolTip": "ImageConverter\\Models\\AsciiConvert.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T15:55:36.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AsciiConverter.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConverter.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Models\\AsciiConverter.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConverter.cs",
+              "RelativeToolTip": "ImageConverter\\Models\\AsciiConverter.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAGEAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T15:55:37.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AsciiConverterSettings.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConverterSettings.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Models\\AsciiConverterSettings.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Models\\AsciiConverterSettings.cs",
+              "RelativeToolTip": "ImageConverter\\Models\\AsciiConverterSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T15:54:57.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ImageConverter\\Views\\MainWindow.xaml",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "ImageConverter\\Views\\MainWindow.xaml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACYAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-08T15:21:47.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Package.appxmanifest",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Package.appxmanifest",
+              "RelativeDocumentMoniker": "ImageConverter\\Package.appxmanifest",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Package.appxmanifest",
+              "RelativeToolTip": "ImageConverter\\Package.appxmanifest",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001793|",
+              "WhenOpened": "2024-07-08T13:21:18.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ThemeSelectorService.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Services\\Implemations\\ThemeSelectorService.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Services\\Implemations\\ThemeSelectorService.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Services\\Implemations\\ThemeSelectorService.cs",
+              "RelativeToolTip": "ImageConverter\\Services\\Implemations\\ThemeSelectorService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:50:01.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TextBlockExtensions.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Extensions\\TextBlockExtensions.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Extensions\\TextBlockExtensions.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Extensions\\TextBlockExtensions.cs",
+              "RelativeToolTip": "ImageConverter\\Extensions\\TextBlockExtensions.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:22:53.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TitleBarUpdater.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Helpers\\TitleBarUpdater.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Helpers\\TitleBarUpdater.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Helpers\\TitleBarUpdater.cs",
+              "RelativeToolTip": "ImageConverter\\Helpers\\TitleBarUpdater.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAArwFcAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:22:01.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationThemeExtensions.cs",
+              "DocumentMoniker": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Extensions\\ApplicationThemeExtensions.cs",
+              "RelativeDocumentMoniker": "ImageConverter\\Extensions\\ApplicationThemeExtensions.cs",
+              "ToolTip": "D:\\dotnet\\repos\\ImageConverter \u2014 \u043A\u043E\u043F\u0438\u044F\\ImageConverter\\Extensions\\ApplicationThemeExtensions.cs",
+              "RelativeToolTip": "ImageConverter\\Extensions\\ApplicationThemeExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:00:10.435Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

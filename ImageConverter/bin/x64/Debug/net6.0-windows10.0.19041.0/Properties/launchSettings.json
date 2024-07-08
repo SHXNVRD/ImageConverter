@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "ImageConverter (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ImageConverter (Unpackaged)": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

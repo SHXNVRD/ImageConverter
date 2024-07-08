@@ -48,7 +48,7 @@
                             <RadioButton x:ConnectionId='6'
                                 x:Uid="SettingsThemeLight"
                                                                                
-                                                                                                                                                                                >
+                                                                                                                                                                     >
                                 <RadioButton.CommandParameter>
                                     <xaml:ElementTheme>Light</xaml:ElementTheme>
                                 </RadioButton.CommandParameter>
@@ -56,7 +56,7 @@
                             <RadioButton x:ConnectionId='7'
                                 x:Uid="SettingsThemeDark"
                                                                                
-                                                                                                                                                                               >
+                                                                                                                                                                    >
                                 <RadioButton.CommandParameter>
                                     <xaml:ElementTheme>Dark</xaml:ElementTheme>
                                 </RadioButton.CommandParameter>
@@ -64,7 +64,7 @@
                             <RadioButton x:ConnectionId='8'
                                 x:Uid="SettingsThemeDefault"
                                                                                
-                                                                                                                                                                                  >
+                                                                                                                                                                       >
                                 <RadioButton.CommandParameter>
                                     <xaml:ElementTheme>Default</xaml:ElementTheme>
                                 </RadioButton.CommandParameter>
@@ -82,7 +82,7 @@
                 </labs:SettingsExpander.HeaderIcon>
 
                 <ToggleSwitch x:ConnectionId='2' x:Name="tsUseCustomSymbols"
-                                                                                   >
+                                                                                    >
                     
                     <i:Interaction.Behaviors>
                         <c:EventTriggerBehavior EventName="Toggled">

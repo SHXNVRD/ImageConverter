@@ -4,7 +4,15 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>ImageConverter (Unpackaged)</ActiveDebugProfile>
+    <ActiveDebugProfile>ImageConverter (Package)</ActiveDebugProfile>
+    <Source>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</Source>
+    <SmallTileSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</SmallTileSource>
+    <MediumTileSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</MediumTileSource>
+    <WideTileSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</WideTileSource>
+    <LargeTileSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</LargeTileSource>
+    <AppIconSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</AppIconSource>
+    <SplashScreenSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</SplashScreenSource>
+    <PackageLogoSource>D:\Users\Rodion\Downloads\ImageConverterLogo.pdf</PackageLogoSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
@@ -17,12 +25,6 @@
       <SubType>Designer</SubType>
     </None>
     <Page Update="Views\ConvertToASCIIPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\HomePage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ConvertImageTypePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SettingsPage.xaml">

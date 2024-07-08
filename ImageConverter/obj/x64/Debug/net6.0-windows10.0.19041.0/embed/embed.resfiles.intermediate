@@ -1,6 +1,5 @@
 App.xbf
-Views\ConvertImageTypePage.xbf
+Styles\ButtonStyles.xbf
 Views\ConvertToASCIIPage.xbf
-Views\HomePage.xbf
 Views\MainWindow.xbf
 Views\SettingsPage.xbf

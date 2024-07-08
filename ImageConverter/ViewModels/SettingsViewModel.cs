@@ -2,33 +2,32 @@
 using CommunityToolkit.Mvvm.Input;
 using ImageConverter.Services.CustomSymbolsService;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using System.ComponentModel;
+using System;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ImageConverter.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
         private readonly IThemeSelectorService _themeSelectorService;
-        private readonly UserSymbolsService _userSymbolsService;
+        private readonly IUserSymbolsService _userSymbolsService;
 
         [ObservableProperty]
-        private ElementTheme _themeOnLoadSettingsPage;
+        private ElementTheme _currentTheme;
         [ObservableProperty]
         private string _userSymbols;
         [ObservableProperty]
-        private bool _useUserSymbols;
+        private bool _userSymbolsIsOn;
 
-        public SettingsViewModel(IThemeSelectorService themeSelectorService, UserSymbolsService userSymbolsService)
+        public SettingsViewModel(IThemeSelectorService themeSelectorService, IUserSymbolsService userSymbolsService)
         {
             _themeSelectorService = themeSelectorService;
             _userSymbolsService = userSymbolsService;
-            _themeOnLoadSettingsPage = _themeSelectorService.CurrentTheme;
+            CurrentTheme = _themeSelectorService.CurrentTheme;
             UserSymbols = _userSymbolsService.UserSymbols;
-            UseUserSymbols = _userSymbolsService.UseUserSymbols;
+            UserSymbolsIsOn = _userSymbolsService.UseUserSymbols;
         }
 
         [RelayCommand]
@@ -37,6 +36,7 @@ namespace ImageConverter.ViewModels
             if (_themeSelectorService.CurrentTheme != theme)
             {
                 await _themeSelectorService.SetTheme(theme);
+                CurrentTheme = _themeSelectorService.CurrentTheme;
             }
         }
 
@@ -58,7 +58,7 @@ namespace ImageConverter.ViewModels
         [RelayCommand]
         public async Task SetUseUserSymbolsAsync()
         {
-            await _userSymbolsService.SetUseUserSymbolsAsync(!UseUserSymbols);
+            await _userSymbolsService.SetUseUserSymbolsAsync(UserSymbolsIsOn);
         }
     }
 }

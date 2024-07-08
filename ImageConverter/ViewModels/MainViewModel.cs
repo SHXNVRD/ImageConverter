@@ -2,9 +2,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using ImageConverter.Views;
-using ImageConverter.Services.Navigation;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
+using ImageConverter.Services.Interfaces;
 
 namespace ImageConverter.ViewModels
 {
@@ -17,34 +17,34 @@ namespace ImageConverter.ViewModels
         [ObservableProperty]
         private NavigationViewItem _selectedNavigationItem;
 
-        private INavigationService _navigationService;
+        public INavigationService NavigationService { get; }
 
         public MainViewModel(INavigationService navigation)
         {
-            _navigationService = navigation;
+            NavigationService = navigation;
         }
 
         [RelayCommand]
-        public void OnLoaded() => _navigationService.NavigateTo(typeof(HomePage));
+        public void OnLoaded() => NavigationService.NavigateTo(typeof(ConvertToASCIIPage));
 
         [RelayCommand]
         public void OnItemInvoked(NavigationViewItemInvokedEventArgs args)
         {
             Type navPageType = Type.GetType(args.InvokedItemContainer.Tag.ToString());
-            _navigationService.NavigateTo(navPageType);
+            NavigationService.NavigateTo(navPageType);
         }
 
         [RelayCommand]
         public void OnNavigated(NavigationEventArgs args)
         {
-            BackButtonEnabled = _navigationService.CanGoBack;
-            SelectedNavigationItem = _navigationService.GetCurrentNavigationItem();
+            BackButtonEnabled = NavigationService.CanGoBack;
+            SelectedNavigationItem = NavigationService.GetCurrentNavigationItem();
         }
 
         [RelayCommand]
-        public void OnBackRequested() => _navigationService.GoBack();
+        public void OnBackRequested() => NavigationService.GoBack();
 
         [RelayCommand]
-        public void OnNavigationFailed(NavigationFailedEventArgs args) => _navigationService.OnNavigationFailed(args);
+        public void OnNavigationFailed(NavigationFailedEventArgs args) => NavigationService.OnNavigationFailed(args);
     }
 }

@@ -14,9 +14,7 @@ namespace ImageConverter.ViewModels
 {
     public partial class ConvertToASCIIViewModel : ObservableObject
     {
-        //private readonly DispatcherQueue _dispetcherQueue = DispatcherQueue.GetForCurrentThread();
-
-        private const int DENOMINATOR = 100;
+        private const int _denominator = 100;
 
         private IPickerService _pickerService;
         private ISettingsService _settinsService;
@@ -61,7 +59,7 @@ namespace ImageConverter.ViewModels
         [RelayCommand]
         private async Task OnAddAsync()
         {
-            ImageFile = await _pickerService.PickImageAsync(App.Current.Window);
+            ImageFile = await _pickerService.PickImageAsync(App.Current.MainWindow);
 
             if (ImageFile == null)
                 return;
@@ -79,7 +77,7 @@ namespace ImageConverter.ViewModels
                 if (_softwareBitmap == null)
                     return;
 
-                var newWidth = _softwareBitmap.PixelWidth * SizePercent / DENOMINATOR;
+                var newWidth = _softwareBitmap.PixelWidth * SizePercent / _denominator;
                 var newHeight = _softwareBitmap.PixelHeight / WidthOffset * newWidth / _softwareBitmap.PixelHeight;
                 resizedBitmap = _softwareBitmap.Resize(newWidth, (int)newHeight);
                 resizedBitmap = resizedBitmap.ConvertToGrayscale();
@@ -139,7 +137,7 @@ namespace ImageConverter.ViewModels
 
             try
             {
-                StorageFile file = await _pickerService.PickSaveTxtAsync(App.Current.Window);
+                StorageFile file = await _pickerService.PickSaveTxtAsync(App.Current.MainWindow);
 
                 if (file == null)
                     return;
@@ -148,8 +146,7 @@ namespace ImageConverter.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
-                Debug.WriteLine(ex.StackTrace);
+                await DialogService.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
             }
         }
 

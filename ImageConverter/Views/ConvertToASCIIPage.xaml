@@ -12,6 +12,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/ButtonStyles.xaml"/>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -61,11 +65,11 @@
                               VerticalScrollMode="Auto"
                               VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto">
-                    
+
                     <TextBlock Text="{x:Bind ViewModel.AsciiArt, Mode=OneWay}" TextWrapping="WrapWholeWords" FontFamily="Consolas" IsTextSelectionEnabled="True"/>
                 </ScrollViewer>
             </Grid>
-
+            
             <!-- Панель натсроек -->
             <StackPanel x:Name="SettingsPanel"
                         Grid.Column="1"
@@ -73,38 +77,29 @@
                         Margin="0 12 12 12"
                         Spacing="5">
 
-                <TextBlock
-                    Text="Параметры преобразования"
-                    Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                <labs:SettingsCard Header="Размер (%)"
+                                   Description="Задаёт размер итогового арта исходя из загруженного изображения"
+                                   ContentAlignment="Right">
 
-                <labs:SettingsCard
-                    Header="Размер (%)"
-                    Description="Задаёт размер итогового изображения исходя из загруженного изображения"
-                    ContentAlignment="Right">
-
-                    <Slider
-                        Width="350"
-                        MinWidth="100"
-                        Maximum="100"
-                        Minimum="10"
-                        StepFrequency="1"
-                        Value="{x:Bind ViewModel.SizePercent, Mode=TwoWay}">
-
+                    <Slider x:Name="SizeSlider"
+                            Maximum="100"
+                            Minimum="10"
+                            StepFrequency="1"
+                            Value="{x:Bind ViewModel.SizePercent, Mode=TwoWay}"
+                            Width="350">
                     </Slider>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard
-                    Header="Смещение"
-                    Description="Задаёт показатель, влияющий на изменение пропорций изображения"
-                    HorizontalContentAlignment="Stretch">
+                <labs:SettingsCard Header="Смещение"
+                                   Description="Задаёт кратность уменьшения высоты итогового арта"
+                                   HorizontalContentAlignment="Stretch">
 
-                    <Slider x:Name="WidthOffset"
-                            Width="350"
-                            MinWidth="100"
+                    <Slider x:Name="WidthOffsetSlider"
                             Maximum="10"
                             Minimum="1"
                             StepFrequency="0.1"
-                            Value="{x:Bind ViewModel.WidthOffset, Mode=TwoWay}">
+                            Value="{x:Bind ViewModel.WidthOffset, Mode=TwoWay}"
+                            Width="350">
 
                     </Slider>
                 </labs:SettingsCard>
@@ -138,10 +133,10 @@
                             Style="{StaticResource AccentButtonStyle}"/>
 
                     <Button Grid.Column="1" 
+                            Style="{StaticResource CloseButtonStyle}"
                             HorizontalAlignment="Stretch"
                             Content="Сбросить"
-                            Command="{x:Bind ViewModel.ResetSettingsCommand}"
-                            Background="#f56c7a"/>
+                            Command="{x:Bind ViewModel.ResetSettingsCommand}"/>
                 </Grid>
             </StackPanel>
         </Grid>
@@ -151,7 +146,9 @@
                     Height="auto"
                     Grid.Row="2"
                     Padding="5"
-                    Background="{StaticResource LayerFillColorDefaultBrush}">
+                    Margin="12 0 0 0"
+                    CornerRadius="8 0 0 8"
+                    Background="{StaticResource LayerFillColorAltBrush}">
 
             <TextBlock Text="Файл: "/>
             <TextBlock Text="{x:Bind ViewModel.ImagePath, Mode=OneWay}"/>

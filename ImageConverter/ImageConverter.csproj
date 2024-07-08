@@ -12,59 +12,106 @@
     <EnableMsixTooling>true</EnableMsixTooling>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<ApplicationIcon>Assets\WindowIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\WindowIcon.ico" />
+    <Content Remove="Assets\AppList.scale-100.png" />
+    <Content Remove="Assets\AppList.scale-100_altform-colorful_theme-light.png" />
+    <Content Remove="Assets\AppList.scale-125.png" />
+    <Content Remove="Assets\AppList.scale-125_altform-colorful_theme-light.png" />
+    <Content Remove="Assets\AppList.scale-150.png" />
+    <Content Remove="Assets\AppList.scale-150_altform-colorful_theme-light.png" />
+    <Content Remove="Assets\AppList.scale-200.png" />
+    <Content Remove="Assets\AppList.scale-200_altform-colorful_theme-light.png" />
+    <Content Remove="Assets\AppList.scale-400.png" />
+    <Content Remove="Assets\AppList.scale-400_altform-colorful_theme-light.png" />
+    <Content Remove="Assets\AppList.targetsize-16.png" />
+    <Content Remove="Assets\AppList.targetsize-16_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-16_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-20.png" />
+    <Content Remove="Assets\AppList.targetsize-20_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-20_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-24.png" />
+    <Content Remove="Assets\AppList.targetsize-24_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-24_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-256.png" />
+    <Content Remove="Assets\AppList.targetsize-256_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-256_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-30.png" />
+    <Content Remove="Assets\AppList.targetsize-30_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-30_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-32.png" />
+    <Content Remove="Assets\AppList.targetsize-32_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-32_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-36.png" />
+    <Content Remove="Assets\AppList.targetsize-36_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-36_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-40.png" />
+    <Content Remove="Assets\AppList.targetsize-40_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-40_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-48.png" />
+    <Content Remove="Assets\AppList.targetsize-48_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-48_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-60.png" />
+    <Content Remove="Assets\AppList.targetsize-60_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-60_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-64.png" />
+    <Content Remove="Assets\AppList.targetsize-64_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-64_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-72.png" />
+    <Content Remove="Assets\AppList.targetsize-72_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-72_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-80.png" />
+    <Content Remove="Assets\AppList.targetsize-80_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-80_altform-unplated.png" />
+    <Content Remove="Assets\AppList.targetsize-96.png" />
+    <Content Remove="Assets\AppList.targetsize-96_altform-lightunplated.png" />
+    <Content Remove="Assets\AppList.targetsize-96_altform-unplated.png" />
+    <Content Remove="Assets\StoreLogo.scale-100.png" />
+    <Content Remove="Assets\StoreLogo.scale-125.png" />
+    <Content Remove="Assets\StoreLogo.scale-150.png" />
+    <Content Remove="Assets\StoreLogo.scale-200.png" />
+    <Content Remove="Assets\StoreLogo.scale-400.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-	<Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Views\ConvertImageTypePage.xaml" />
     <None Remove="Views\ConvertToASCIIPage.xaml" />
-    <None Remove="Views\HomePage.xaml" />
     <None Remove="Views\SettingsPage.xaml" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Labs.WinUI.SettingsControls" Version="0.0.18" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Behaviors" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230913002" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240607001" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WinUICommunity.Core" Version="6.9.0" />
     <PackageReference Include="WinUIEx" Version="2.3.4" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
-
-  <!-- 
-    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
-    Tools extension to be activated for this project even if the Windows App SDK Nuget
-    package has not yet been restored.
-  -->
+	
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Properties\launchSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Page Update="ButtonStyles.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Update="Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <ItemGroup>
     <Page Update="Views\ConvertToASCIIPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\HomePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\ConvertImageTypePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -73,12 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-
-  <!-- 
-    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
-    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
-    the Windows App SDK Nuget package has not yet been restored.
-  -->
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+	
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>

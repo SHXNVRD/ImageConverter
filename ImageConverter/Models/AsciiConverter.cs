@@ -2,6 +2,9 @@
 using Windows.Graphics.Imaging;
 using System.Runtime.InteropServices.WindowsRuntime;
 using WinRT;
+using System.Threading.Tasks;
+using System;
+using System.Linq;
 
 namespace ImageConverter.Models
 {
@@ -87,10 +90,8 @@ namespace ImageConverter.Models
             return result;
         }
 
-        public static float Map(float valueMap, float start1, float stop1, float start2, float stop2)
-        {
-            return (valueMap - start1) / (stop1 - start1) * (stop2 - start2) + start2;
-        }
+        public static float Map(float valueMap, float start1, float stop1, float start2, float stop2) =>
+            (valueMap - start1) / (stop1 - start1) * (stop2 - start2) + start2;
 
         public static string StringifyAscii(char[][] asciiArray)
         {

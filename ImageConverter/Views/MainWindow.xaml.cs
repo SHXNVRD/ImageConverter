@@ -1,7 +1,13 @@
-using CommunityToolkit.WinUI;
+using Microsoft.UI.Dispatching;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using Windows.ApplicationModel;
 using WinUIEx;
 
 namespace ImageConverter
@@ -11,29 +17,42 @@ namespace ImageConverter
         public MainViewModel ViewModel { get; }
         public Frame Frame { get => ContentFrame; }
 
-        public MainWindow()
+        public MainWindow(MainViewModel viewModel)
         {
             this.InitializeComponent();
-            ViewModel = new MainViewModel(new NavigationService(GetNavigationItems()));
+            ViewModel = viewModel;
+            Activated += MainWindow_Activated;
+            ViewModel.NavigationService.Initialize(GetNavigationItems());
             ((FrameworkElement)Content).DataContext = ViewModel;
-            AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/WindowIcon.ico"));
+            ConfigureTitleBar();
+        }
+
+        public void ConfigureTitleBar()
+        {
             ExtendsContentIntoTitleBar = true;
+            AppTitle.Text = AppInfo.Current.DisplayInfo.DisplayName;
             SetTitleBar(AppTitleBar);
-            AppTitleBarTextBlock.Text = "AppTitle";
         }
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
+            var appTheme = App.GetService<IThemeSelectorService>().CurrentTheme;
+
+            var theme = appTheme == ElementTheme.Default ?
+                App.Current.RequestedTheme.ToElementTheme() : appTheme;
+
             if (args.WindowActivationState == WindowActivationState.Deactivated)
             {
-                AppTitleBarTextBlock.Foreground =
-                    (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
+                DispatcherQueue.TryEnqueue(() =>
+                    AppTitle.UpdateForeground(theme));
             }
             else
             {
-                AppTitleBarTextBlock.Foreground =
-                    (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
+                DispatcherQueue.TryEnqueue(() =>
+                    AppTitle.UpdateForeground(theme, true));
             }
+
+            App.Current.AppTitle = AppTitle;
         }
 
         public IEnumerable<NavigationViewItem> GetNavigationItems()
@@ -46,7 +65,5 @@ namespace ImageConverter
 
             return navigationItems;
         }
-
-        private double NavViewCompactModeThresholdWidth { get { return NavView.CompactModeThresholdWidth; } }
     }
 }
