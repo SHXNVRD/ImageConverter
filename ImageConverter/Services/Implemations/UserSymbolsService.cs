@@ -1,6 +1,4 @@
-﻿
-using System.Threading.Tasks;
-using Windows.Networking.NetworkOperators;
+﻿using System.Threading.Tasks;
 
 namespace ImageConverter.Services.CustomSymbolsService
 {

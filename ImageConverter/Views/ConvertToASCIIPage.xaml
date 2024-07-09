@@ -77,8 +77,7 @@
                         Margin="0 12 12 12"
                         Spacing="5">
 
-                <labs:SettingsCard Header="Размер (%)"
-                                   Description="Задаёт размер итогового арта исходя из загруженного изображения"
+                <labs:SettingsCard x:Uid="AsciiConvertingSizeSetting"
                                    ContentAlignment="Right">
 
                     <Slider x:Name="SizeSlider"
@@ -90,8 +89,7 @@
                     </Slider>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard Header="Смещение"
-                                   Description="Задаёт кратность уменьшения высоты итогового арта"
+                <labs:SettingsCard x:Uid="AsciiConvertingOffsetSetting"
                                    HorizontalContentAlignment="Stretch">
 
                     <Slider x:Name="WidthOffsetSlider"
@@ -104,8 +102,7 @@
                     </Slider>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard Header="Инверсия"
-                                   Description="Инвертирует итоговый арт, делая светлые области тёмными и наоборот. Включите, если арт будет располагаться на светлом фоне">
+                <labs:SettingsCard x:Uid="AsciiConvertingInversionSetting">
                     <labs:SettingsCard.Resources>
                         <x:Double x:Key="SettingsCardWrapThreshold">450</x:Double>
                     </labs:SettingsCard.Resources>
@@ -113,8 +110,7 @@
                     <ToggleSwitch HorizontalAlignment="Right"
                                   IsOn="{x:Bind ViewModel.IsNegativeOn, Mode=TwoWay}">
                         <ToolTipService.ToolTip>
-                            <ToolTip Content="Откл - лучше для тёмного фона
-                                              Вкл - лучше для светлого фона"/>
+                            <ToolTip x:Uid="AsciiConvertingInversionSettingToolTip"/>
                         </ToolTipService.ToolTip>
                     </ToggleSwitch>
                 </labs:SettingsCard>
@@ -127,13 +123,14 @@
 
                     <Button Grid.Column="0" 
                             HorizontalAlignment="Stretch"
-                            Content="Генерировать"
+                            x:Uid="AsciiConvertingGenerateButton"
                             Command="{x:Bind ViewModel.GenerateASCIICommand}"
                             Margin="0 0 5 0"
                             Style="{StaticResource AccentButtonStyle}"/>
 
                     <Button Grid.Column="1" 
                             Style="{StaticResource CloseButtonStyle}"
+                            x:Uid="AsciiConvertingResetButton"
                             HorizontalAlignment="Stretch"
                             Content="Сбросить"
                             Command="{x:Bind ViewModel.ResetSettingsCommand}"/>
@@ -150,8 +147,9 @@
                     CornerRadius="8 0 0 8"
                     Background="{StaticResource LayerFillColorAltBrush}">
 
-            <TextBlock Text="Файл: "/>
-            <TextBlock Text="{x:Bind ViewModel.ImagePath, Mode=OneWay}"/>
+            <TextBlock x:Uid="StatusBarFileName"/>
+            <TextBlock Text="{x:Bind ViewModel.ImagePath, Mode=OneWay}"
+                       Margin="10 0 0 0"/>
         </StackPanel>
     </Grid>
 </Page>

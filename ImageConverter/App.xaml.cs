@@ -1,16 +1,9 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using ImageConverter.Services.CustomSymbolsService;
-using WinUIEx;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using Microsoft.Extensions.Hosting;
-using Microsoft.UI.Xaml.Automation;
-using Microsoft.Extensions.Options;
-using WinUICommunity;
 
 namespace ImageConverter
 {

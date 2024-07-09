@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Microsoft.UI.Dispatching;
-using System.Diagnostics;
 using System.Collections.ObjectModel;
-using ImageConverter.Helpers;
+using ImageConverter.Converter;
 
 namespace ImageConverter.ViewModels
 {
@@ -121,7 +119,7 @@ namespace ImageConverter.ViewModels
             }
             catch (Exception ex)
             {
-                await DialogService.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
+                await Dialog.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
             }
             finally
             {
@@ -146,7 +144,7 @@ namespace ImageConverter.ViewModels
             }
             catch (Exception ex)
             {
-                await DialogService.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
+                await Dialog.ConfirmationDialogAsync(App.Current.MainRoot, "Возникла ошибка", $"{ex.Message}\n{ex.StackTrace}", "ОК");
             }
         }
 

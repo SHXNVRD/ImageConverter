@@ -117,29 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AsciiConvertingGenerateButton.Content" xml:space="preserve">
+    <value>Генерировать</value>
+  </data>
+  <data name="AsciiConvertingInversionSetting.Description" xml:space="preserve">
+    <value>Инвертирует итоговый арт, делая светлые области тёмными и наоборот. Включите, если арт будет располагаться на светлом фоне</value>
+  </data>
+  <data name="AsciiConvertingInversionSetting.Header" xml:space="preserve">
+    <value>Инверсия</value>
+  </data>
+  <data name="AsciiConvertingInversionSettingToolTip.Content" xml:space="preserve">
+    <value>Откл - лучше для тёмного фона
+Вкл - лучше для светлого фона</value>
+  </data>
+  <data name="AsciiConvertingOffsetSetting.Description" xml:space="preserve">
+    <value>Задаёт кратность уменьшения высоты итогового арта</value>
+  </data>
+  <data name="AsciiConvertingOffsetSetting.Header" xml:space="preserve">
+    <value>Смещение</value>
+  </data>
+  <data name="AsciiConvertingResetButton.Content" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="AsciiConvertingSizeSetting.Description" xml:space="preserve">
+    <value>Задаёт размер итогового арта исходя из загруженного изображения</value>
+  </data>
+  <data name="AsciiConvertingSizeSetting.Header" xml:space="preserve">
+    <value>Размер (%)</value>
+  </data>
   <data name="ConvertImageHeader.Content" xml:space="preserve">
     <value>Конвертация изображений</value>
-  </data>
-  <data name="ConvertImageType.Content" xml:space="preserve">
-    <value>Конвертировать тип</value>
   </data>
   <data name="ConvertToASCII.Content" xml:space="preserve">
     <value>Конвертировать в ASCII</value>
   </data>
-  <data name="Home.Content" xml:space="preserve">
-    <value>Главная</value>
-  </data>
   <data name="Settings.Content" xml:space="preserve">
     <value>Настройки</value>
-  </data>
-  <data name="SettingsLanguage.Header" xml:space="preserve">
-    <value>Язык</value>
-  </data>
-  <data name="SettingsLanguageEnglish.Content" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="SettingsLanguageRussian.Content" xml:space="preserve">
-    <value>Русский</value>
   </data>
   <data name="SettingsPersonalization.Text" xml:space="preserve">
     <value>Персонализация</value>
@@ -155,5 +168,17 @@
   </data>
   <data name="SettingsThemeLight.Content" xml:space="preserve">
     <value>Светлая</value>
+  </data>
+  <data name="SettingsUserSymbols.Description" xml:space="preserve">
+    <value>Установите собственные символы для генерации ASCII-артов</value>
+  </data>
+  <data name="SettingsUserSymbols.Header" xml:space="preserve">
+    <value>Пользовательские символы</value>
+  </data>
+  <data name="SettingsUserSymbolsSettingCard.Header" xml:space="preserve">
+    <value>Введите символы</value>
+  </data>
+  <data name="StatusBarFileName.Text" xml:space="preserve">
+    <value>Файл: </value>
   </data>
 </root>

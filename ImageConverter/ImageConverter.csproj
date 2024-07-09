@@ -11,8 +11,19 @@
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<Nullable>enable</Nullable>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<ApplicationIcon>Assets\WindowIcon.ico</ApplicationIcon>
+	<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+	<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+	<PackageCertificateKeyFile>ImageConverter_TemporaryKey.pfx</PackageCertificateKeyFile>
+	<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+	<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+	<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+	<GenerateTestArtifacts>True</GenerateTestArtifacts>
+	<AppxBundle>Always</AppxBundle>
+	<AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
+	<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\AppList.scale-100.png" />

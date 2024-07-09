@@ -20,23 +20,6 @@
 
     <ScrollViewer>
         <StackPanel Margin="56,44">
-            
-            <labs:SettingsExpander x:Uid="SettingsLanguage">
-                
-                <labs:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xF2B7;"/>
-                </labs:SettingsExpander.HeaderIcon>
-
-                <labs:SettingsExpander.Items>
-                    <labs:SettingsCard ContentAlignment="Left">
-                        <RadioButtons>
-                            <RadioButton x:Uid="SettingsLanguageRussian" />
-                            <RadioButton x:Uid="SettingsLanguageEnglish"/>
-                        </RadioButtons>
-                    </labs:SettingsCard>
-                </labs:SettingsExpander.Items>
-            </labs:SettingsExpander>
-
             <labs:SettingsExpander x:Uid="SettingsTheme">
                 <labs:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE790;"/>
@@ -74,9 +57,7 @@
                 </labs:SettingsExpander.Items>
             </labs:SettingsExpander>
 
-            <labs:SettingsExpander Header="Пользовательские символы"
-                                   Description="Установите собственные символы для генерации ASCII-артов"
-                                   >
+            <labs:SettingsExpander x:Uid="SettingsUserSymbols">
                 <labs:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xED58;"/>
                 </labs:SettingsExpander.HeaderIcon>
@@ -92,15 +73,15 @@
                 </ToggleSwitch>
 
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="Введите символы"
+                        <labs:SettingsCard x:Uid="SettingsUserSymbolsSettingCard"
                                            x:Name="CustomSymbolsSetting">
 
-                            <TextBox MinWidth="100"
-                                     Text="{x:Bind ViewModel.UserSymbols, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                     LostFocus="{x:Bind ViewModel.SetUserSymbolsAsync}">
-                            </TextBox>
+                                <TextBox MinWidth="100"
+                                         Text="{x:Bind ViewModel.UserSymbols, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                         LostFocus="{x:Bind ViewModel.SetUserSymbolsAsync}">
+                                </TextBox>
                         </labs:SettingsCard>
-                     </labs:SettingsExpander.Items>
+                    </labs:SettingsExpander.Items>
             </labs:SettingsExpander>
         </StackPanel>
     </ScrollViewer>

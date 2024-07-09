@@ -1,14 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.IO;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using ImageConverter.Services.Settings;
 using Newtonsoft.Json;
-using Windows.Graphics.Printing3D;
 
 namespace ImageConverter.Services.Files
 {

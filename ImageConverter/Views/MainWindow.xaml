@@ -12,10 +12,6 @@
     xmlns:winex="using:WinUIEx"
     MinWidth="500"
 	MinHeight="500">
-
-    <Window.SystemBackdrop>
-        <MicaBackdrop/>
-    </Window.SystemBackdrop>
     
     <Grid x:Name="RootGrid"
 		  Background="{ThemeResource  ApplicationPageBackgroundThemeBrush}">

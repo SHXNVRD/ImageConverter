@@ -2,11 +2,9 @@ using Microsoft.UI.Dispatching;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Reflection;
 using Windows.ApplicationModel;
 using WinUIEx;
 
@@ -19,18 +17,24 @@ namespace ImageConverter
 
         public MainWindow(MainViewModel viewModel)
         {
-            this.InitializeComponent();
+            InitializeComponent();
             ViewModel = viewModel;
             Activated += MainWindow_Activated;
             ViewModel.NavigationService.Initialize(GetNavigationItems());
             ((FrameworkElement)Content).DataContext = ViewModel;
+            AppWindow.SetPresenter(AppWindowPresenterKind.Overlapped);
             ConfigureTitleBar();
         }
 
-        public void ConfigureTitleBar()
+        private void ConfigureTitleBar()
         {
             ExtendsContentIntoTitleBar = true;
-            AppTitle.Text = AppInfo.Current.DisplayInfo.DisplayName;
+
+            if (RuntimeHelper.IsMSIX)
+                AppTitle.Text = AppInfo.Current.DisplayInfo.DisplayName;
+            else
+                AppTitle.Text = Assembly.GetExecutingAssembly().GetName().Name;
+
             SetTitleBar(AppTitleBar);
         }
 
@@ -55,7 +59,7 @@ namespace ImageConverter
             App.Current.AppTitle = AppTitle;
         }
 
-        public IEnumerable<NavigationViewItem> GetNavigationItems()
+        private IEnumerable<NavigationViewItem> GetNavigationItems()
         {
             var navigationItems =  NavView.MenuItems
                                    .OfType<NavigationViewItem>()

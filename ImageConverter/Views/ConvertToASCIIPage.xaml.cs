@@ -1,4 +1,3 @@
-using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
 
 namespace ImageConverter.Views

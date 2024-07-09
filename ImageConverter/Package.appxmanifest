@@ -9,7 +9,7 @@
 
   <Identity
     Name="ceefe516-ea4b-4c6e-bb1c-441226de50a4"
-    Publisher="CN=Rodion"
+    Publisher="CN=SHXNVRD"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ceefe516-ea4b-4c6e-bb1c-441226de50a4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

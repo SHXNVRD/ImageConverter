@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
-using ImageConverter.Views;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
-using ImageConverter.Services.Interfaces;
 
 namespace ImageConverter.ViewModels
 {

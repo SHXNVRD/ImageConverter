@@ -1,1 +1,0 @@
-D:\dotnet\repos\ImageConverter — копия\ImageConverter\ImageConverter.csproj;x64

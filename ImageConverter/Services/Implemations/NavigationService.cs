@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.DependencyInjection;
-using ImageConverter.Services.Interfaces;
-using Microsoft.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
