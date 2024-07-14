@@ -90,8 +90,11 @@ namespace ImageConverter.Converter
             return result;
         }
 
-        public static float Map(float valueMap, float start1, float stop1, float start2, float stop2) =>
-            (valueMap - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+        public static double Map(float valueMap, float start1, float stop1, float start2, float stop2)
+        {
+            var mappedValue = (valueMap - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+            return Math.Round(mappedValue, MidpointRounding.AwayFromZero);
+        }
 
         public static string StringifyAscii(char[][] asciiArray)
         {

@@ -7,10 +7,10 @@ namespace ImageConverter.Services.CustomSymbolsService
         private readonly ISettingsService _settingsService;
         private bool _isInitialized;
 
-        private const string UserSymbolsSettingsKey = "UserSymbols";
-        private const string UseUserSymbolsSettingsKey = "UseUserSymbols";
+        const string UserSymbolsSettingsKey = "UserSymbols";
+        const string UseUserSymbolsSettingsKey = "UseUserSymbols";
 
-        public string UserSymbols { get; private set; }
+        public string? UserSymbols { get; private set; }
         public bool UseUserSymbols { get; private set; }
 
         public UserSymbolsService(ISettingsService settingsService)

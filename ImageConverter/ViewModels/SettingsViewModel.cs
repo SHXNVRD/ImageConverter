@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ImageConverter.Services.CustomSymbolsService;
 using Microsoft.UI.Xaml;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -56,6 +57,6 @@ namespace ImageConverter.ViewModels
 
         [RelayCommand]
         public async Task SetUseUserSymbolsAsync() =>
-            await _userSymbolsService.SetUseUserSymbolsAsync(UserSymbolsIsOn);
+            await _userSymbolsService.SetUseUserSymbolsAsync(!UserSymbolsIsOn);
     }
 }

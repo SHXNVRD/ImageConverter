@@ -7,6 +7,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using System.Collections.ObjectModel;
 using ImageConverter.Converter;
+using ImageConverter.Services.CustomSymbolsService;
 
 namespace ImageConverter.ViewModels
 {
@@ -16,6 +17,7 @@ namespace ImageConverter.ViewModels
 
         private IPickerService _pickerService;
         private ISettingsService _settinsService;
+        private readonly IUserSymbolsService _userSymbolsService;
         private SoftwareBitmap _softwareBitmap;
 
         [ObservableProperty]
@@ -48,10 +50,11 @@ namespace ImageConverter.ViewModels
             }
         }
 
-        public ConvertToASCIIViewModel(IPickerService pickerService, ISettingsService settingsService)
+        public ConvertToASCIIViewModel(IPickerService pickerService, ISettingsService settingsService, IUserSymbolsService userSymbolsService)
         {
             _pickerService = pickerService;
             _settinsService = settingsService;
+            _userSymbolsService = userSymbolsService;
         }
 
         [RelayCommand]
@@ -68,7 +71,7 @@ namespace ImageConverter.ViewModels
         [RelayCommand]
         private async Task OnGenerateASCII()
         {
-            SoftwareBitmap resizedBitmap = null;
+            SoftwareBitmap? resizedBitmap = null;
 
             try
             {
@@ -81,37 +84,29 @@ namespace ImageConverter.ViewModels
                 resizedBitmap = resizedBitmap.ConvertToGrayscale();
                 char[][] rows;
 
-                if (await _settinsService.ReadSettingAsync<bool>("UseCustomSymbols"))
+                if (_userSymbolsService.UseUserSymbols)
                 {
                     var settings = new AsciiConverterSettings();
-                    var symbols = _settinsService.ReadSettingAsync<string>("CustomSymbols").Result.ToCharArray();
-                    settings.AsciiTable = symbols;
-                    Array.Reverse(symbols);
-                    settings.AsciiTableNegative = symbols;
+                    var userSymbols = _userSymbolsService.UserSymbols;
+                    var userAsciiTable = userSymbols.ToCharArray();
+                    settings.AsciiTable = userAsciiTable;
+                    Array.Reverse(userAsciiTable);
+                    settings.AsciiTableNegative = userAsciiTable;
 
                     if (IsNegativeOn)
-                    {
                         rows = await AsciiConvert.ConvertAsync(resizedBitmap, settings);
-                    }
                     else
-                    {
+                    
                         rows = await AsciiConvert.ConvertNegativeAsync(resizedBitmap, settings);
-
-                    }
 
                     AsciiArt = AsciiConvert.StringifyAscii(rows);
                 }
                 else
                 {
                     if (IsNegativeOn)
-                    {
                         rows = await AsciiConvert.ConvertAsync(resizedBitmap);
-                    }
                     else
-                    {
                         rows = await AsciiConvert.ConvertNegativeAsync(resizedBitmap);
-
-                    }
 
                     AsciiArt = AsciiConvert.StringifyAscii(rows);
                 }
